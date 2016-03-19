@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>jQuery Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
     <style>
         button {
             height: 40px;
             width: 40px;
             font-size: 110%;
+            outline: none;
         }
         #display {
             font-size: 120%;
@@ -17,14 +20,27 @@
         span {
             font-size: 150%;
         }
+        .container {
+            padding-top: 50px;
+            text-align: center;
+        }
+        .container table {
+            margin: auto;
+            text-align: center;
+        }
+        .container input {
+            border-radius: 3px;
+            padding: 5px;
+            border: 1px solid #999;
+        }
     </style>
 </head>
 
 <body>
-<!--
+    <!--
    Tutorials: http://codinghouse.co/blog/building-a-jquery-calculator-part-3/
    -->
-    <body>
+    <div class="container">
         <table>
             <tr>
                 <input id="display" type="text" value="0" /><span id="currOp"></span>
@@ -59,7 +75,6 @@
                 <td>
                     <button id="minus" class="operator">-</button>
                 </td>
-                
                 <td>
                     <button id="root">√</button>
                 </td>
@@ -99,9 +114,164 @@
                 </td>
             </tr>
         </table>
-    </body>
-
+    </div>
 
 </body>
+<script>
+    var isOperating = false;
+    var isFloating = false;
+    var toBeCleared = false;
+    var operator;
+    var operand;
+    var display;
+
+    $(document).ready(init);
+
+    function init() {
+        display = $('#display');
+        $('.num').on('click', numClicked);
+        $('.operator').on('click', operatorClicked);
+        $('#invert').on('click', invertClicked);
+        $('#root').on('click', rootClicked);
+        $('#decimal').on('click', decimalClicked);
+        $('#equals').on('click', equalsClicked);
+        $('#clear').on('click', clearClicked);
+    }
+
+    function numClicked() {
+        alert('Number button clicked!');
+    }
+
+    function operatorClicked() {
+        alert('Operator button clicked!');
+    }
+
+    function invertClicked() {
+        alert('Invert button clicked!');
+    }
+
+    function rootClicked() {
+        alert('Square root button clicked!');
+    }
+
+    function decimalClicked() {
+        alert('Decimal button clicked!');
+    }
+
+    function equalsClicked() {
+        alert('Equals button clicked!');
+    }
+
+    function clearClicked() {
+        alert('Clear button clicked!');
+    }
+
+    function numClicked() {
+        var currVal = display.val();
+        var clickedNum = $(this).text();
+
+        if (currVal === "0" || toBeCleared) {
+            toBeCleared = false;
+            display.val(clickedNum);
+        } else {
+            display.val(currVal + clickedNum);
+        }
+    }
+
+    function clearClicked() {
+        reset();
+        display.val('0');
+    }
+
+    function reset() {
+        toBeCleared = true;
+        isOperating = false;
+        isFloating = false;
+        operator = null;
+        operand = null;
+        $('#currOp').text('');
+    }
+
+    function invertClicked() {
+        display.val(display.val() * -1);
+    }
+
+    function operatorClicked() {
+        if (isOperating) {
+            display.val(evaluate());
+        }
+        switch ($(this).attr('id')) {
+            case 'plus':
+                operator = '+';
+                break;
+            case 'minus':
+                operator = '−';
+                break;
+            case 'mult':
+                operator = '×';
+                break;
+            case 'divide':
+                operator = '÷';
+                break;
+            case 'power':
+                operator = '^';
+                break;
+        }
+        operand = parseFloat(display.val());
+        isOperating = true;
+        toBeCleared = true;
+        $('#currOp').text(operator);
+    }
+
+    function evaluate() {
+        var currVal = parseFloat(display.val());
+        var result;
+        switch (operator) {
+            case '+':
+                result = operand + currVal;
+                break;
+            case '−':
+                result = operand - currVal;
+                break;
+            case '×':
+                result = operand * currVal;
+                break;
+            case '÷':
+                if (currVal === 0) {
+                    result = 'Err';
+                } else {
+                    result = operand / currVal;
+                }
+                break;
+            case '^':
+                result = Math.pow(operand, currVal);
+                break;
+            default:
+                result = currVal;
+        }
+        return result;
+    }
+
+    function equalsClicked() {
+        display.val(evaluate());
+        reset();
+    }
+
+    function rootClicked() {
+        display.val(Math.sqrt(evaluate()));
+    }
+
+    function decimalClicked() {
+        if (toBeCleared) {
+            display.val('0.');
+            toBeCleared = false;
+        } else {
+            if (!isFloating) {
+                display.val(display.val().concat('.'));
+            }
+        }
+        isFloating = true;
+    }
+</script>
 
 </html>
