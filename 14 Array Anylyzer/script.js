@@ -3,6 +3,7 @@ function arrayAnalyzer() {
   var oddsCounts = 0,
       negativesCounts = 0,
       avg,
+      sum = 0,
       median = 0;
   var  medianArr = [];
   
@@ -22,9 +23,17 @@ function arrayAnalyzer() {
   var medianArrSorted = medianArr.sort(function(a, b) {
         return a - b;
   });
-  
-  
-  alert(medianArrSorted, "odds: "+oddsCounts+", negatives: "+negativesCounts)
+  var middle = Math.floor(medianArrSorted.length/2)
+  if (medianArrSorted.length % 2) {
+        median = medianArrSorted[middle];
+    } else {
+        median = (medianArrSorted[middle] + medianArrSorted[middle + 1]) / 2.0;
+    };
+  for (var i=0;i<arguments.length;i++) {
+   sum += arguments[i];
+  };
+  avg = Math.round(sum/arguments.length * 100)/100;
+  alert("odds: "+oddsCounts+", negatives: "+negativesCounts+", avg: "+avg+", median: "+median)
 }
 
-arrayAnalyzer(-4,-2,0, 2, 4);
+arrayAnalyzer(7, -3, 0, 12, 44, -5, 3);
