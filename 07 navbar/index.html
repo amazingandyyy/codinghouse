@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+        .hero-grey {
+            height: 150px;
+            background: #3F3F3F
+        }
+        .nav-tabs {
+            background: #3F3F3F;
+        }
+        .nav-tabs li {
+            margin: auto;
+        }
+        .nav-tabs > li,
+        .nav-pills > li {
+            font-weight: 600;
+            float: none;
+            display: inline-block;
+            *display: inline;
+            /* ie7 fix */
+            zoom: 1;
+            /* hasLayout ie7 trigger */
+            background: #AFCFDC;
+            border-radius: 3px 3px 0px 0px;
+        }
+        .nav-tabs,
+        .nav-pills {
+            text-align: center;
+            border-bottom: 0px solid #ddd;
+        }
+        a {
+            color: white;
+            !important
+        }
+        .nav-tabs li.active a,
+        .nav-tabs li.active a:hover,
+        .nav-tabs li a:hover {
+            background: none;
+            border: 1px solid rgba(0, 0, 0, 0);
+        }
+        .nav-tabs li:hover,
+        .nav-tabs li.active {
+            background: #fff;
+        }
+        .nav .open>a,
+        .nav .open>a:focus,
+        .nav .open>a:hover {
+            background-color: rgba(255, 255, 255, 1);
+            border-color: rgba(0, 0, 0, 0);
+            margin: 0px;
+        }
+					.dropdown-menu {
+					border: 1px solid rgba(0,0,0,0.15);
+						box-shadow: none;
+					}
+					
+					.navbar-default {
+						position: absolute;
+						left: 0px;
+						top: 150px;
+						width: 100%;
+						background: #3F3F3F;
+						border: none;
+						border-radius: 0px;
+					}
+					
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav nav-tabs">
+            <li role="presentation" class='fa-tab'><a href="#"><i class="fa fa-home"></i></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Community</a>
+                <ul class="dropdown-menu">
+
+                    <li><a href="#">Recent Activity</a>
+                    </li>
+                    <li role="separator" class="divider"></li>
+
+                    <li><a href="#">Member Forum</a>
+
+                    </li>
+                    <li role="separator" class="divider"></li>
+
+                    <li><a href="#">Member List</a>
+                    </li>
+                    <li role="separator" class="divider"></li>
+
+                    <li><a href="#">Member Groups</a>
+                    </li>
+
+                    
+                </ul>
+            </li>
+            <li role="presentation"><a href="#">Pet Help</a>
+            </li>
+            <li role="presentation"><a href="#">Pets for Sale</a>
+            </li>
+            <li role="presentation"><a href="#">Pets Services</a>
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    <div class="hero-grey"></div>
+    
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
