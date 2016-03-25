@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
 
 </head>
 
@@ -13,7 +13,41 @@
 </body>
 
 <script>
-    
+    /*	Using a for...in loop, console.log all of the keys and values in the following object*/
+    var object01 = {
+        "wheels": 3,
+        "horsepower": 600,
+        "decal": "flames",
+        "awesome": true,
+        "holdsBarred": []
+    };
+    for (var key in object01) {
+        if (object01.hasOwnProperty(key)) {
+            console.log(key + ': ' + object01[key]);
+        }
+    };
+    /*Using the .map function, return an array that is equal to the square of each of the values in the following array*/
+    var array01 = [1, 2, 5, 7, 11];
+    var newArray01 = array01.map(function(data) {
+        return data * data;
+    });
+    console.log(newArray01);
+    /*Using the .reduce function, find the product of the numbers in the following array*/
+    var array02 = [3, 5, 7, 9, 12];
+    var newArray02 = array02.reduce(function(previousValue, currentValue) {
+        return previousValue * currentValue;
+    });
+    console.log(newArray02);
+    /*Using the .filter function, create a new array of only odd numbers from the following array*/
+    var array03 = [1, 22, 35, 2, 4, 7, 9];
+    var newArray03 = array02.filter(function(data) {
+        return data % 2 == 1;
+    });
+    console.log(newArray03);
+    /*Using the .sort function, sort the following array reverse-alphabetically*/
+    var array04 = ['water', 'balloon', 'baseball', 'computer', 'notebook', 'frisbee'];
+    var newArray04 = array04.sort().reverse();
+    console.log(newArray04);
 </script>
 
 </html>
