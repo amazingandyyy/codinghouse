@@ -13,14 +13,44 @@
 </body>
 
 <script>
-    ffunction age(yyyy, mm, dd) {
-        var today = new Date();
-        var dateToTest = new Date(yyyy, mm, dd);
-        var timeinmilisec = Math.abs(dateToTest.getTime() - today.getTime());
-        console.log(Math.ceil(timeinmilisec / (1000 * 60 * 60 * 24)));
+//    function age(yyyy, mm, dd) {
+//        var today = new Date();
+//        var dateToTest = new Date(yyyy, mm, dd);
+//        var timeinmilisec = Math.abs(dateToTest.getTime() - today.getTime());
+//        console.log(Math.ceil(timeinmilisec / (1000 * 60 * 60 * 24)));
+//    }
+//
+//    age(2013, 3, 25);
+	
+	
+	function age(testedYear, testedMonth, testedDate) {
+  var today = new Date();
+  var todayDate = today.getDate();
+  var todayMonth = today.getMonth()+1;
+  var todayYear = today.getFullYear();
+  
+  if(testedYear>todayYear) {
+  var resultYear = testedYear-todayYear;
+  if(testedMonth < todayMonth){
+  	var resultMonth = (12-todayMonth-1)+testedMonth;  
+  }else if(testedMonth>todayMonth){
+    var resultMonth = (12-todayMonth-1)+testedMonth;  
+  }else{
+    resultMonth = 0;
+  }
+  
+  var resultDate = 0;
+    if(resultYear == 1){
+      console.log(resultMonth+" months, "+resultDate+" days");
+    }else{
+      console.log(resultYear+" years, "+resultMonth+" months, "+resultDate+" days");
     }
 
-    age(2013, 3, 25);
+  }
+  
+    }
+
+    age(2017, 4, 25);
 </script>
 
 </html>
