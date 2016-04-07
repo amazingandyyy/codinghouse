@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
 
 </head>
 
@@ -13,44 +13,135 @@
 </body>
 
 <script>
-//    function age(yyyy, mm, dd) {
-//        var today = new Date();
-//        var dateToTest = new Date(yyyy, mm, dd);
-//        var timeinmilisec = Math.abs(dateToTest.getTime() - today.getTime());
-//        console.log(Math.ceil(timeinmilisec / (1000 * 60 * 60 * 24)));
-//    }
-//
-//    age(2013, 3, 25);
-	
-	
-	function age(testedYear, testedMonth, testedDate) {
-  var today = new Date();
-  var todayDate = today.getDate();
-  var todayMonth = today.getMonth()+1;
-  var todayYear = today.getFullYear();
-  
-  if(testedYear>todayYear) {
-  var resultYear = testedYear-todayYear;
-  if(testedMonth < todayMonth){
-  	var resultMonth = (12-todayMonth-1)+testedMonth;  
-  }else if(testedMonth>todayMonth){
-    var resultMonth = (12-todayMonth-1)+testedMonth;  
-  }else{
-    resultMonth = 0;
-  }
-  
-  var resultDate = 0;
-    if(resultYear == 1){
-      console.log(resultMonth+" months, "+resultDate+" days");
-    }else{
-      console.log(resultYear+" years, "+resultMonth+" months, "+resultDate+" days");
+    //    function age(yyyy, mm, dd) {
+    //        var today = new Date();
+    //        var dateToTest = new Date(yyyy, mm, dd);
+    //        var timeinmilisec = Math.abs(dateToTest.getTime() - today.getTime());
+    //        console.log(Math.ceil(timeinmilisec / (1000 * 60 * 60 * 24)));
+    //    }
+    //
+    //    age(2013, 3, 25);
+
+
+    function age(testedYear, testedMonth, testedDate) {
+        var today = new Date();
+        var todayDate = today.getDate();
+        var todayMonth = today.getMonth() + 1;
+        var todayYear = today.getFullYear();
+        var testDay = new Date(testedYear, testedMonth - 1, testedDate);
+
+        if (testedYear > todayYear) {
+            var resultYear = testedYear - todayYear;
+            if (testedMonth < todayMonth) {
+                var resultMonth = (12 - todayMonth) + testedMonth;
+                var resultYear = 0;
+            } else if (testedMonth > todayMonth) {
+                var resultMonth = (12 - todayMonth - 1) + testedMonth;
+            } else {
+                resultMonth = 0;
+            };
+
+            var resultDate = testedDate - todayDate;
+            if (resultYear == 0) {
+                console.log(resultMonth + " months, " + resultDate + " days");
+            } else {
+                console.log(resultYear + " years, " + resultMonth + " months, " + resultDate + " days");
+            }
+        } else if (testedYear == todayYear) {
+            var resultMonth = testedMonth - todayMonth;
+            var resultDate = testedDate - todayDate;
+            if (resultMonth == 0) {
+                console.log(resultDate + " days");
+            } else {
+                console.log(resultMonth + " months, " + resultDate + " days");
+            }
+        } else if (testedYear == todayYear - 1) {
+            if (testedMonth == todayMonth) {
+                if (testedDate > todayDate) {
+                    var resultYear = 1;
+                    var resultMonth = testedMonth - todayMonth;
+                    var resultDate = testedDate - todayDate;
+                } else if (testedDate < todayDate) {
+                    var resultYear = 0;
+                    var resultMonth = 11;
+                    var resultDate = 30 + (testedDate - todayDate);
+                } else if (testedDate == todayDate) {
+                    var resultYear = 1;
+                    var resultMonth = 0;
+                    var resultDate = 0;
+                }
+            } else if (testedMonth > todayMonth) {
+                var resultYear = Math.abs(testedYear - todayYear);
+                var resultMonth = 12 - testedMonth + todayMonth;
+                var resultDate = 30 + (testedDate - todayDate);
+                if (resultDate % 30 > 0) {
+                    var resultDate = resultDate % 30;
+                }
+            } else if (testedMonth < todayMonth) {
+                var resultYear = Math.abs(testedYear - todayYear);
+                var resultMonth = todayMonth - testedMonth;
+                var resultDate = todayDate - testedDate;
+            };
+
+
+            if (resultDate < 0) {
+                var resultDate = 29 - (testedDate - todayDate);
+            }
+            if (resultYear == 0) {
+                console.log(resultMonth + " months, " + resultDate + " days");
+            } else {
+                console.log(resultYear + " years, " + resultMonth + " months, " + resultDate + " days");
+            }
+        } else if (testedYear < todayYear) {
+            if (testedMonth == todayMonth) {
+                if (testedDate > todayDate) {
+                    var resultYear = todayYear - testedYear;
+                    var resultMonth = testedMonth - todayMonth;
+                    var resultDate = testedDate - todayDate;
+                } else if (testedDate < todayDate) {
+                    var resultYear = todayYear - testedYear;
+                    var resultMonth = 11;
+                    var resultDate = 30 + (testedDate - todayDate);
+                } else if (testedDate == todayDate) {
+                    var resultYear = Math.abs(testedYear - todayYear);
+                    var resultMonth = 0;
+                    var resultDate = 0;
+                }
+            } else if (testedMonth > todayMonth) {
+                var resultYear = Math.abs(testedYear - todayYear);
+                var resultMonth = 12 - testedMonth + todayMonth;
+                var resultDate = 30 + (testedDate - todayDate);
+                if (resultDate % 30 > 0) {
+                    var resultDate = resultDate % 30;
+                }
+            } else if (testedMonth < todayMonth) {
+                var resultYear = Math.abs(testedYear - todayYear);
+                var resultMonth = todayMonth - testedMonth;
+                var resultDate = todayDate - testedDate;
+            };
+
+
+            if (resultDate < 0) {
+                var resultDate = 29 - (testedDate - todayDate);
+            }
+            if (resultYear == 0) {
+                console.log(resultMonth + " months, " + resultDate + " days");
+            } else {
+                console.log(resultYear + " years, " + resultMonth + " months, " + resultDate + " days");
+            }
+        }
+
     }
 
-  }
-  
-    }
-
-    age(2017, 4, 25);
+    age(2017, 4, 25); // 1 year 0 month 21 days
+    age(2017, 3, 25); // 11 month 21 days
+    age(2018, 4, 25); // 2 year 0 month 21 days
+    age(2016, 4, 25); // 21 days
+    age(2015, 4, 5); // 1 year 0 month 1 days
+    age(2015, 4, 4); // 1 year 0 month 0 days
+    age(2015, 4, 2); // 11 month 28 days
+    age(2015, 5, 2); // 1 year 1 month 28 days
+    age(2013, 1, 2); // 3 year 2 month 1 days
 </script>
 
 </html>

@@ -1,0 +1,70 @@
+<html>
+<style>
+    .tags {
+        width: 60px;
+        height: 60px;
+        margin: 0px;
+        display: inline-block;
+        color: green;
+        border: 1px solid black;
+    }
+    .tags.white {
+        background: #000;
+    }
+    .tags.black {
+        background: #fff;
+    }
+</style>
+
+<body>
+    <h1>Game Board</h1>
+    <form>
+        <input type="text" class='numberInput' placeholder="input a size(number)">
+        <button type="submit" class="numberInputSubmitted">Create</button>
+    </form>
+    <table id="gameBoard">
+        <tbody></tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        $('.numberInputSubmitted').click(function(e) {
+            e.preventDefault();
+            var size = $('.numberInput').val();
+            var elements = [];
+            var black = true;
+            if (size % 2 == 0) {
+                for (x = 0; x < size * size; x++) {
+																	if (x % size == 0) {
+																		black ^= true;
+                        elements.push('<br>');
+                    };
+                    if (black == true) {
+                        black ^= true;
+                        var element = $("<div class='tags black'>" + x + '</div>');
+                    } else if (black == false) {
+                        black ^= true;																					
+                        var element = $("<div class='tags white'>" + x + '</div>');
+                    };                    
+                    
+                    elements.push(element);
+                }
+            } else {
+                for (x = 0; x < size * size; x++) {
+                    black ^= true;
+                    if (black == true) {
+                        var element = $("<div class='tags black'>" + x + '</div>');
+                    } else if (black == false) {
+                        var element = $("<div class='tags white'>" + x + '</div>');
+                    };
+                    if (x % size == 0) {
+                        elements.push('<br>');
+                    }
+                    elements.push(element);
+                }
+            }
+            $('tbody').empty().append(elements);
+        });
+    </script>
+</body>
+
+</html>

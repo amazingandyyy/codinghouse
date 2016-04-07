@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <style>
+    </style>
+
+</head>
+
+<body>
+    <div class="container"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.get('https://api.github.com/users/amazingandyyy', function(content) {
+                $.ajax({
+                    method: "POST",
+                    url: "http://httpbin.org/post",
+                    success: function(data) {
+																					 var addContent = $('<div>').append("<img class='image' src='"+content.avatar_url+"' />").append('<h1>'+content.login+'</h1>').append('<h2>'+content.name+'</h2>');
+																					$('.container').append(addContent);
+																					$('.image').width('150px');
+                    },
+                    error: function() {
+                        console.log('Fail');
+                    }
+                });
+            })
+
+        });
+    </script>
+</body>
+
+</html>
