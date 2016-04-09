@@ -1,0 +1,21 @@
+<html>
+<style>
+</style>
+
+<body>
+    <h1>Hello!</h1>
+    <button>New Message</button>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+                var quoteList = [
+                    'quote 1', 'quote 2', 'quote 3', 'quote 4', 'quote 5', 'quote 6', 'quote 7', 'quote 8', 'quote 9', 'quote 10'
+                ];
+                $('button').click(function(e) {
+                        $('h1').html(quoteList[Math.floor(Math.random()*10)]);
+                    });
+                });
+    </script>
+</body>
+
+</html>

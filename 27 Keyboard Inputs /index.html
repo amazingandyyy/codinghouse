@@ -1,0 +1,60 @@
+<html>
+<style>
+    .disabled {
+        color: #eee;
+    }
+    .div {
+        display: inline-block;
+    }
+    .key {
+        max-width: 20px;
+        display: inline-block;
+        padding: 3px;
+        font-size: 2em;
+    }
+    .log {
+        color: red;
+    }
+</style>
+
+<body>
+    <div id="board"></div>
+    <div class="log"></div>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        var numItems = $('.key.disabled').length;
+        var array = []
+        var func = function(num1, num2) {
+            for (var i = num1; i <= num2; i++) {
+                // create a button with the charcode, and an id
+                var key = $('<div>').html(String.fromCharCode(i)).prop('id', i).prop('class', 'key')
+                array.push(key)
+            }
+        }
+        func(97, 122)
+         func(48, 57)
+
+         $('#board').append(array)
+
+         var pressed = [];
+        $(document).on('keypress', function(ev) {
+            var code = ev.charCode || ev.keyCode || 0;
+            if (pressed.indexOf(String.fromCharCode(code)) > -1) {
+                $('.log').html(String.fromCharCode(code) + ' has been pressed!');
+            }
+            pressed.push(String.fromCharCode(code));
+
+            console.log(pressed);
+            $('#' + code).addClass('disabled');
+
+            //									
+
+            var numItems = $('.key.disabled').length;
+            if (numItems >= 36) {
+                alert('You Won the game!!')
+            };
+        });
+    </script>
+</body>
+
+</html>
