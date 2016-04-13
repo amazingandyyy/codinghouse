@@ -124,6 +124,26 @@ body {
     transition: .3s background ease-in-out;
     z-index: 98;
 }
+#AmazingAdnyyy {
+    position: absolute;
+    right: 20px;
+    bottom: -12px;
+    opacity: 0.6;
+    box-shadow: inset 0px 0px 3px 0px black;
+    z-index: 99;
+}
+#AmazingAdnyyy img {
+  width: 160px;
+}
+#AmazingAdnyyy:hover {
+  bottom: -5px;
+  opacity: 1;
+  transition: .05s all ease-in-out
+}
+#AmazingAdnyyy:active {
+  transform: scale(0.98);
+  opacity: 1;
+}
 #btnSkip {
     position: absolute;
     top: 140px;
