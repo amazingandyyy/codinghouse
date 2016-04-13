@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function makeNegative(numbers) {
+            var result = numbers.map(function(element) {
+                if (Math.sign(element) == 1) {
+                    return element * -1;
+                } else {
+                    return element;
+                }
+            });
+
+            console.log(result);
+        }
+
+        function makeNegative2(numbers) {
+            var result = numbers.map(function(element) {
+                return Math.abs(element) * -1;
+            });
+
+            console.log(result);
+        }
+        function makeNegative3(numbers) {
+            return numbers.map(num => Math.abs(num) * -1)
+
+            console.log(result);
+        }
+
+        let makeNegative4 (numbers) => (Math.abs(numbers) * -1);
+
+
+        makeNegative([5, -2, 4, 0]);
+        makeNegative2([5, -2, 4, 0]);
+        makeNegative3([5, -2, 4, 0]);
+        makeNegative4([5, -2, 4, 0]);
+
+        // =>
+        var sum = function(a, b) {
+            return a + b;
+        }
+
+        let sum = (a, b) => {
+            a + b
+        };
+
+        let sum = (a, b) => a + b;
+        // ablove are same thing.
+    </script>
+
+</body>
+
+</html>

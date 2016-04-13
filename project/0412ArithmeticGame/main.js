@@ -51,9 +51,11 @@ function numBtnClicked(event) {
         userAnswer = (answerArr.join(''));
         answer.textContent = userAnswer;
     } else {
+      if(answerArr.length < 7){
         answerArr.push(event.target.textContent);
         userAnswer = parseInt(answerArr.join(''));
         answer.textContent = userAnswer;
+      }
     }
 
     console.log(event.target.textContent);
@@ -176,10 +178,17 @@ window.addEventListener("keydown", function(event) {
         }
         answer.textContent = answerArr.join('');
     } else if (event.keyCode > 47 && event.keyCode < 58) {
+      if(answerArr.length < 7){
         console.log('yes: ', event.keyCode);
         answerArr.push((event.keyCode - 48));
         var userAnswer = parseInt(answerArr.join(''));
         answer.textContent = userAnswer;
+      }
     }
     console.log(event.keyCode);
+
+    // if(){
+    //
+    // }
+
 }, true);
