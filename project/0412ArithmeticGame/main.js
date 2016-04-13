@@ -5,6 +5,7 @@ var scoresF = document.getElementById('scoresF');
 var scoresScoreF = 0;
 
 function init() {
+    showScore()
     document.getElementById('question').style.opacity = "1";
     var firstNum = document.getElementById('firstNum');
     var relation = document.getElementById('relation');
@@ -13,8 +14,10 @@ function init() {
     var answer = document.getElementById('answer');
     var resultBtn = document.getElementById('resultBtn');
     var clearBtn = document.getElementById('clearBtn');
+    var btnSkip = document.getElementById('btnSkip');
     var btnR = document.getElementById('btnR');
     var answerArr;
+
 
 
     firstNum.textContent = Math.floor(Math.random() * 100);
@@ -28,6 +31,7 @@ function init() {
     inputter.addEventListener('click', numBtnClicked);
     resultBtn.addEventListener('click', resultBtnClicked);
     clearBtn.addEventListener('click', clearBtnClicked);
+    btnSkip.addEventListener('click', btnSkipClicked);
     // btnR.addEventListener('click', btnRClicked);
 
 
@@ -37,12 +41,11 @@ function init() {
 var answerArr = [];
 
 function numBtnClicked(event) {
-    if (event.target.textContent == "C") {
-    } else if (event.target.textContent == "+/-") {
+    if (event.target.textContent == "C") {} else if (event.target.textContent == "+/-") {
         btnRClicked();
-        var userAnswer = parseInt(answerArr.join(''));
+        userAnswer = (answerArr.join(''));
         answer.textContent = userAnswer;
-    } else{
+    } else {
         answerArr.push(event.target.textContent);
         var userAnswer = parseInt(answerArr.join(''));
         answer.textContent = userAnswer;
@@ -61,8 +64,9 @@ function btnRClicked() {
         }
     } else if (answerArr.length == 0) {
         answerArr.push('-');
-        var userAnswer = parseInt(answerArr.join(''));
-        answer.textContent = userAnswer;
+        userAnswer = answerArr.join('');
+        console.log(answerArr)
+        console.log(userAnswer)
     }
 
 }
@@ -71,7 +75,6 @@ function btnRClicked() {
 function clearBtnClicked() {
     answerArr = [];
     answer.textContent = answerArr.join('');
-    console.log('clearClikec')
 }
 
 function resultBtnClicked() {
@@ -86,12 +89,12 @@ function resultBtnClicked() {
         scoresScore += 1;
     } else if (userAnswer !== correctAnswer) {
         document.getElementById('lost').classList.add('active');
-        document.getElementById('lost').textContent = "Fail. Correct is " + correctAnswer + ".";
+        document.getElementById('lost').textContent = "Fail :( It Should be " + correctAnswer + ".";
         scoresScoreF += 1;
     }
 
     window.setTimeout(showScore, 300);
-    window.setTimeout(slowAlert, 1000);
+    window.setTimeout(slowAlert, 1300);
 }
 
 function showScore() {
@@ -104,5 +107,19 @@ function slowAlert() {
     document.getElementById('lost').classList.remove('active');
     clearBtnClicked();
 
+    init();
+}
+
+function btnSkipClicked() {
+    document.getElementById('lost').classList.add('active');
+    document.getElementById('lost').textContent = "You just skip it.";
+function fun(){
+  document.getElementById('win').classList.remove('active');
+  document.getElementById('lost').classList.remove('active');
+}
+    window.setTimeout(fun, 800);
+
+    clearBtnClicked();
+    scoresScoreF += 0.5;
     init();
 }
