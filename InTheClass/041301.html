@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function makeNegative(numbers) {
+            var result = numbers.map(function(element) {
+                if (Math.sign(element) == 1) {
+                    return element * -1;
+                }else{
+                  return element;
+                }
+            });
+
+            console.log(result);
+        }
+        makeNegative([5, -2, 4, 0]);
+    </script>
+
+</body>
+
+</html>

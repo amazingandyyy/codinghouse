@@ -197,9 +197,9 @@ body {
     left: 0px;
     width: 100%;
     transition: .5s all ease-in-out;
-    line-height: 40px;
+    line-height: 80px;
     letter-spacing: 2px;
-    font-size: 1em;
+    font-size: 1.5em;
     opacity: 0;
     font-weight: 400;
     color: white;
@@ -283,5 +283,9 @@ body {
     #scoresF {
         font-size: 2.6em;
         line-height: 1em;
+    }
+    #lost, #win {
+      font-size: 1.1em;
+      line-height: 50px;
     }
 }

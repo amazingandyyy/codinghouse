@@ -137,9 +137,8 @@ function btnSkipClicked() {
         document.getElementById('whiteCard').classList.remove('active');
     }
     window.setTimeout(fun, 800);
-
     clearBtnClicked();
-    scoresScoreF += 0;
+    // scoresScoreF += 0;
     init();
 }
 
@@ -164,9 +163,9 @@ window.addEventListener("keydown", function(event) {
     if (event.keyCode == 189) {
         btnRClicked();
         console.log('1- 89');
-    } else if (event.keyCode == 13 || event.keyCode == 32) {
+    } else if (event.keyCode == 13 ) {
         resultBtnClicked();
-    } else if (event.keyCode == 39) {
+    } else if (event.keyCode == 39 || event.keyCode == 32) {
         btnSkipClicked();
     } else if (event.keyCode == 8) {
         event.preventDefault();
