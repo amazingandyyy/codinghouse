@@ -138,17 +138,17 @@ body {
 }
 #AmazingAdnyyy {
     position: absolute;
-    right: 20px;
+    right: 5%;
     bottom: -12px;
     opacity: 0.3;
     box-shadow: inset 0px 0px 3px 0px black;
     transition: 1s all ease-in-out;
     z-index: 1;
-    filter: blur(1px);
-    -webkit-filter: blur(1px);
-    -moz-filter: blur(1px);
-    -o-filter: blur(1px);
-    -ms-filter: blur(1px);
+    filter: blur(.5px);
+    -webkit-filter: blur(.5px);
+    -moz-filter: blur(.5px);
+    -o-filter: blur(.5px);
+    -ms-filter: blur(.5px);
 }
 #AmazingAdnyyy img {
     width: 160px;
@@ -171,7 +171,7 @@ body {
 #btnSkip {
     position: absolute;
     top: -40px;
-    right: 55px;
+    right: 60px;
     color: #5F5F5F;
     font-size: 1.1em;
     font-weight: 100;
