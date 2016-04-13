@@ -1,0 +1,174 @@
+body {
+    background: #fff;
+    color: brown;
+    padding-top: 80px;
+    text-align: center;
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+    -moz-user-select: none;
+    /* Firefox all */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+    margin: 0; height: 100%; overflow: hidden;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.question {
+    display: inline-block;
+    font-size: 3em;
+    font-weight: 900;
+}
+#question {
+    opacity: 0;
+    transition: .2s all ease-in-out;
+}
+.pad_container {}
+#inputter {
+    margin: auto;
+}
+#inputter button {
+    padding: 10px;
+    font-size: 2em;
+    width: 60px;
+    border-radius: 100%;
+    border: 1px solid #000;
+    opacity: 0.6;
+    font-weight: 100;
+    background: #eee;
+    outline: none;
+    cursor: grab;
+    position: relative;
+}
+#inputter button:after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 0px;
+    border-radius: 100%;
+    content: '';
+    background: #000;
+}
+#inputter button:hover {
+    opacity: 1;
+}
+#inputter button:active {
+    transform: scale(0.96);
+}
+#resultBtn, #clearBtn {
+    padding: 10px;
+    font-size: 2em;
+    width: 190px;
+    display: block;
+    margin: auto;
+    margin-bottom: 4px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background: white;
+    transition: .2s background-color ease-in-out;
+    outline: none;
+}
+#resultBtn {
+    background: white;
+    color: #2378DA;
+    border: 1px solid #2378DA;
+}
+#clearBtn {
+    background: white;
+    color: #9B9B9B;
+    border: 1px solid #9B9B9B;
+}
+#resultBtn:hover {
+    background: #2378DA;
+    color: white;
+}
+#clearBtn:hover {
+    background: #9B9B9B;
+    color: white;
+}
+#lost, #win {
+    position: absolute;
+    bottom: -80px;
+    height: 80px;
+    left: 0px;
+    width: 100%;
+    transition: .5s all ease-in-out;
+    line-height: 80px;
+    font-size: 1.9em;
+    opacity: 0;
+}
+#lost {
+    background-color: #FF6E6E;
+    color: 940505;
+}
+#win {
+    background-color: #9BEA40;
+    color: #3E7300;
+}
+#lost.active, #win.active {
+    opacity: 1;
+    bottom: 0px;
+    transition: .5s all ease-in-out;
+}
+#scoresC {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 900;
+    background: #3B3837;
+    height: 100px;
+    width: 100px;
+    padding: 5px;
+}
+#scoresCF {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 900;
+    background: #A31526;
+    height: 100px;
+    width: 100px;
+    padding: 5px;
+}
+#scores {
+    font-size: 2.6em;
+    line-height: 1em;
+}
+#scoresF {
+    font-size: 2.6em;
+    line-height: 1em;
+}
+@media (max-width: 600px) {
+    #scoresC {
+        top: 5px;
+        left: 5px;
+        font-size: 0.8em;
+        font-weight: 900;
+        background: #3B3837;
+        height: 70px;
+        width: 70px;
+        padding: 5px;
+    }
+    #scoresCF {
+        top: 5px;
+        right: 5px;
+        font-size: 0.8em;
+        font-weight: 900;
+        background: #A31526;
+        height: 70px;
+        width: 70px;
+        padding: 5px;
+    }
+    #scores {
+        font-size: 2.6em;
+        line-height: 1em;
+    }
+    #scoresF {
+        font-size: 2.6em;
+        line-height: 1em;
+    }
+}
