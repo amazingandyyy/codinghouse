@@ -223,7 +223,7 @@ body {
     font-size: 2.6em;
     line-height: 1em;
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     #scoresC {
         top: 5px;
         left: 5px;
