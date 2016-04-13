@@ -8,7 +8,7 @@ var scoresScoreF = 0;
 function init() {
     showScore()
     document.getElementById('question').style.opacity = "1";
-    document.body.style.zoom = '300%';
+    // document.body.style.zoom = '300%';
     var firstNum = document.getElementById('firstNum');
     var relation = document.getElementById('relation');
     var secondNum = document.getElementById('secondNum');

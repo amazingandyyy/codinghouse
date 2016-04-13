@@ -1,7 +1,6 @@
 body {
     background: url("images/bk.jpg") no-repeat center center fixed;
     background-size: cover;
-    color: brown;
     padding-top: 80px;
     text-align: center;
     -webkit-user-select: none;
@@ -15,7 +14,6 @@ body {
     height: 100%;
     overflow: hidden;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    zoom: 120%;
 }
 .whiteCard {
     text-align: right;
@@ -236,7 +234,7 @@ body {
     font-size: 2.6em;
     line-height: 1em;
 }
-@media (max-width: 800px) {
+@media (max-width: 414px) {
     #scoresC {
         top: 5px;
         left: 5px;
