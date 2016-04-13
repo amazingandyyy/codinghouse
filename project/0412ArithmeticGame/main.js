@@ -177,7 +177,7 @@ window.addEventListener("keydown", function(event) {
             answerArr.pop();
         }
         answer.textContent = answerArr.join('');
-    } else if (event.keyCode > 47 && event.keyCode < 58) {
+    } else if (event.keyCode > 47 && event.keyCode < 58 && event.keyCode !== 13) {
       if(answerArr.length < 7){
         console.log('yes: ', event.keyCode);
         answerArr.push((event.keyCode - 48));
