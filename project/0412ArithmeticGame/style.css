@@ -1,5 +1,6 @@
 body {
-    background: #fff;
+    background: url("images/bk.jpg") no-repeat center center fixed;
+    background-size: cover;
     color: brown;
     padding-top: 80px;
     text-align: center;
@@ -13,31 +14,79 @@ body {
     margin: 0; height: 100%; overflow: hidden;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+.whiteCard {
+    text-align: right;
+  background: white;
+  width: 220px;
+  height: 400px;
+  margin: auto;
+  position: relative;
+  box-shadow: 5px 5px 100px -10px rgba(0,0,0,0.9);
+}
 .question {
-    display: inline-block;
-    font-size: 3em;
-    font-weight: 900;
+padding-right: 8px;
+  display: inline-block;
+padding-top: 18px;
+    font-size: 0.9em;
+    font-weight: 200;
+    color:#8A8A8A;
+}
+.question#answer {
+  padding-right: 18px;
+  font-size: 3em;
+  font-weight: 100;
+  text-align: right;
+  padding-top: 0px;
+  color:#545454;
 }
 #question {
     opacity: 0;
     transition: .2s all ease-in-out;
 }
-.pad_container {}
+
+.pad_container {
+  background: rgba(43,50,72,0.9);
+  width: 240px;
+  text-align: center;
+  position: absolute;
+  left: -10px;
+  bottom: 48px;
+  box-shadow: 5px 5px 40px -4px rgba(0,0,0,0.8);
+  z-index: 99;
+}
 #inputter {
-    margin: auto;
+  margin: auto;
+  padding: 10px 10px;
 }
 #inputter button {
-    padding: 10px;
+    padding: 8px;
     font-size: 2em;
     width: 60px;
-    border-radius: 100%;
-    border: 1px solid #000;
+    border: 0px solid #000;
     opacity: 0.6;
     font-weight: 100;
-    background: #eee;
+    background: none;
+    color: white;
     outline: none;
     cursor: grab;
+    margin: 0px;
     position: relative;
+    font-weight: 100;
+}
+#clearBtn {
+    padding: 8px;
+    font-size: 2em;
+    width: 60px;
+    border: 0px solid #000;
+    opacity: 0.6;
+    font-weight: 100;
+    background: none;
+    color: white;
+    outline: none;
+    cursor: grab;
+    margin: 0px;
+    position: relative;
+    font-weight: 100;
 }
 #inputter button:after {
     position: absolute;
@@ -55,55 +104,53 @@ body {
 #inputter button:active {
     transform: scale(0.96);
 }
-#resultBtn, #clearBtn {
-    padding: 10px;
-    font-size: 2em;
-    width: 190px;
-    display: block;
-    margin: auto;
-    margin-bottom: 4px;
-    margin-top: 10px;
-    border-radius: 5px;
-    background: white;
-    transition: .2s background-color ease-in-out;
-    outline: none;
-}
 #resultBtn {
-    background: white;
-    color: #2378DA;
-    border: 1px solid #2378DA;
+    padding: 15px;
+    width: 100%;
+    margin: auto;
+background: linear-gradient(135deg, #FF983D 0%, #FF1C1C 100%);    transition: .2s background-color ease-in-out;
+    outline: none;
+    border: none;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 1em;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 500;
+    transition: .3s background ease-in-out;
 }
-#clearBtn {
-    background: white;
-    color: #9B9B9B;
-    border: 1px solid #9B9B9B;
-}
+
+
 #resultBtn:hover {
-    background: #2378DA;
-    color: white;
+    background: linear-gradient(-135deg, #FF983D 0%, #FF1C1C 100%);
+    transition: .3s background ease-in-out;
+
 }
-#clearBtn:hover {
-    background: #9B9B9B;
-    color: white;
-}
+
+
 #lost, #win {
     position: absolute;
-    bottom: -80px;
-    height: 80px;
+    bottom: -40px;
+    height: 40px;
     left: 0px;
     width: 100%;
     transition: .5s all ease-in-out;
-    line-height: 80px;
-    font-size: 1.9em;
+    line-height: 40px;
+    font-size: 1em;
     opacity: 0;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
 }
 #lost {
-    background-color: #FF6E6E;
-    color: 940505;
+  /* Rectangle 1 Copy 6: */
+background: linear-gradient(-135deg, #FF5050 0%, #D90000 100%);
 }
 #win {
-    background-color: #9BEA40;
-    color: #3E7300;
+  /* Rectangle 1 Copy 7: */
+background: linear-gradient(-135deg, #2DBCEA 0%, #2189D5 100%);
 }
 #lost.active, #win.active {
     opacity: 1;
@@ -111,28 +158,30 @@ body {
     transition: .5s all ease-in-out;
 }
 #scoresC {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    color: white;
-    font-size: 1.2em;
-    font-weight: 900;
-    background: #3B3837;
-    height: 100px;
-    width: 100px;
-    padding: 5px;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  color: white;
+  font-size: 1.1em;
+  font-weight: 100;
+  background: linear-gradient(-135deg, #2DBCEA 0%, #2189D5 100%);
+  height: 90px;
+  width: 90px;
+  padding: 5px;
+  box-shadow: 5px 5px 100px -10px rgba(0,0,0,0.9);
 }
 #scoresCF {
     position: absolute;
     top: 30px;
     right: 30px;
     color: white;
-    font-size: 1.2em;
-    font-weight: 900;
-    background: #A31526;
-    height: 100px;
-    width: 100px;
+    font-size: 1.1em;
+    font-weight: 100;
+    background: linear-gradient(-135deg, #FF5050 0%, #D90000 100%);
+    height: 90px;
+    width: 90px;
     padding: 5px;
+    box-shadow: 5px 5px 100px -10px rgba(0,0,0,0.9);
 }
 #scores {
     font-size: 2.6em;
@@ -144,21 +193,17 @@ body {
 }
 @media (max-width: 600px) {
     #scoresC {
-        top: 5px;
-        left: 5px;
-        font-size: 0.8em;
-        font-weight: 900;
-        background: #3B3837;
-        height: 70px;
-        width: 70px;
-        padding: 5px;
+      top: 5px;
+      left: 5px;
+      font-size: 0.8em;
+      height: 70px;
+      width: 70px;
+      padding: 5px;
     }
     #scoresCF {
         top: 5px;
         right: 5px;
         font-size: 0.8em;
-        font-weight: 900;
-        background: #A31526;
         height: 70px;
         width: 70px;
         padding: 5px;

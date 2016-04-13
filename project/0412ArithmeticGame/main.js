@@ -5,7 +5,7 @@ var scoresF = document.getElementById('scoresF');
 var scoresScoreF = 0;
 
 function init() {
-  document.getElementById('question').style.opacity = "1";
+    document.getElementById('question').style.opacity = "1";
     var firstNum = document.getElementById('firstNum');
     var relation = document.getElementById('relation');
     var secondNum = document.getElementById('secondNum');
@@ -25,7 +25,7 @@ function init() {
     }
     secondNum.textContent = Math.floor(Math.random() * 100);
 
-    inputter.addEventListener('click', numBynClicked);
+    inputter.addEventListener('click', numBtnClicked);
     resultBtn.addEventListener('click', resultBtnClicked);
     clearBtn.addEventListener('click', clearBtnClicked);
     // btnR.addEventListener('click', btnRClicked);
@@ -36,15 +36,19 @@ function init() {
 }
 var answerArr = [];
 
-function numBynClicked(event) {
-    if (event.target.textContent == "+/-") {
-        btnRClicked()
-    } else if (event.target.textContent !== "+/-") {
+function numBtnClicked(event) {
+    if (event.target.textContent == "C") {
+    } else if (event.target.textContent == "+/-") {
+        btnRClicked();
+        var userAnswer = parseInt(answerArr.join(''));
+        answer.textContent = userAnswer;
+    } else{
         answerArr.push(event.target.textContent);
+        var userAnswer = parseInt(answerArr.join(''));
+        answer.textContent = userAnswer;
     }
-    var userAnswer = parseInt(answerArr.join(''));
-    answer.textContent = userAnswer;
-    console.log(userAnswer);
+
+    console.log(event.target.textContent);
 }
 
 function btnRClicked() {
@@ -67,6 +71,7 @@ function btnRClicked() {
 function clearBtnClicked() {
     answerArr = [];
     answer.textContent = answerArr.join('');
+    console.log('clearClikec')
 }
 
 function resultBtnClicked() {
@@ -81,7 +86,7 @@ function resultBtnClicked() {
         scoresScore += 1;
     } else if (userAnswer !== correctAnswer) {
         document.getElementById('lost').classList.add('active');
-        document.getElementById('lost').textContent = "Fail. Correct is " + correctAnswer +".";
+        document.getElementById('lost').textContent = "Fail. Correct is " + correctAnswer + ".";
         scoresScoreF += 1;
     }
 
