@@ -58,11 +58,11 @@ function numBtnClicked(event) {
       }
     }
 
-    console.log(event.target.textContent);
+     // console.log(event.target.textContent);
 }
 
 function btnRClicked() {
-    console.log('do -')
+     // console.log('do -')
     var userAnswer = parseInt(answerArr.join(''));
     if (answerArr.length > 0) {
         if (Math.sign(userAnswer) == 1) {
@@ -73,8 +73,8 @@ function btnRClicked() {
     } else if (answerArr.length == 0) {
         answerArr.push('-');
         userAnswer = answerArr.join('');
-        // console.log(answerArr)
-        // console.log(userAnswer)
+        //  // console.log(answerArr)
+        //  // console.log(userAnswer)
     }
     userAnswer = (answerArr.join(''));
     answer.textContent = userAnswer;
@@ -164,31 +164,28 @@ window.addEventListener("keydown", function(event) {
     }
     if (event.keyCode == 189) {
         btnRClicked();
-        console.log('1- 89');
+         // console.log('1- 89');
     } else if (event.keyCode == 13 ) {
         resultBtnClicked();
     } else if (event.keyCode == 39 || event.keyCode == 32) {
         btnSkipClicked();
     } else if (event.keyCode == 8) {
         event.preventDefault();
-        console.log(answerArr);
-        console.log(userAnswer);
+         // console.log(answerArr);
+         // console.log(userAnswer);
         if (answerArr.length > 0) {
             answerArr.pop();
         }
         answer.textContent = answerArr.join('');
     } else if (event.keyCode > 47 && event.keyCode < 58 && event.keyCode !== 13) {
       if(answerArr.length < 7){
-        console.log('yes: ', event.keyCode);
+         // console.log('yes: ', event.keyCode);
         answerArr.push((event.keyCode - 48));
         var userAnswer = parseInt(answerArr.join(''));
         answer.textContent = userAnswer;
       }
     }
-    console.log(event.keyCode);
+     // console.log(event.keyCode);
 
-    // if(){
-    //
-    // }
 
 }, true);
