@@ -151,11 +151,11 @@ body {
     box-shadow: inset 0px 0px 3px 0px black;
     transition: 1s all ease-in-out;
     z-index: 1;
-    filter: blur(.5px);
-    -webkit-filter: blur(.5px);
-    -moz-filter: blur(.5px);
-    -o-filter: blur(.5px);
-    -ms-filter: blur(.5px);
+    filter: blur(.3px);
+    -webkit-filter: blur(.3px);
+    -moz-filter: blur(.3px);
+    -o-filter: blur(.3px);
+    -ms-filter: blur(.3px);
 }
 #AmazingAdnyyy img {
     width: 160px;
