@@ -37,11 +37,11 @@ body {
     bottom: 15px;
 }
 #whiteCard.active #resultBtn {
-  transition: .2s all ease-in-out;
+    transition: .2s all ease-in-out;
 }
 #whiteCard.active #btnSkip {
-  opacity: 0.3;
-  transition: .2s all ease-in-out;
+    opacity: 0.3;
+    transition: .2s all ease-in-out;
 }
 .question {
     padding-right: 8px;
@@ -140,17 +140,29 @@ body {
     position: absolute;
     right: 20px;
     bottom: -12px;
-    opacity: 0.6;
+    opacity: 0.3;
     box-shadow: inset 0px 0px 3px 0px black;
-    z-index: 99;
+    transition: 1s all ease-in-out;
+    z-index: 1;
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
 }
 #AmazingAdnyyy img {
     width: 160px;
 }
 #AmazingAdnyyy:hover {
-    bottom: -5px;
+    bottom: -11px;
     opacity: 1;
-    transition: .05s all ease-in-out
+    transition: .25s all ease-in-out;
+    filter: blur(0px);
+    transform: scale(1.01);
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(0px);
 }
 #AmazingAdnyyy:active {
     transform: scale(0.98);
@@ -289,7 +301,7 @@ body {
         line-height: 1em;
     }
     #lost, #win {
-      font-size: 1.1em;
-      line-height: 50px;
+        font-size: 1.1em;
+        line-height: 50px;
     }
 }

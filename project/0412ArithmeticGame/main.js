@@ -9,17 +9,17 @@ function init() {
     showScore()
     document.getElementById('question').style.opacity = "1";
     // document.body.style.zoom = '300%';
-    var firstNum = document.getElementById('firstNum');
-    var relation = document.getElementById('relation');
-    var secondNum = document.getElementById('secondNum');
-    var inputter = document.getElementById('inputter');
-    var answer = document.getElementById('answer');
-    var resultBtn = document.getElementById('resultBtn');
-    var clearBtn = document.getElementById('clearBtn');
-    var btnSkip = document.getElementById('btnSkip');
-    var btnR = document.getElementById('btnR');
-    var answerArr = [];
-    var userAnswer = parseInt(answerArr.join(''));
+    var firstNum = document.getElementById('firstNum'),
+        relation = document.getElementById('relation'),
+        secondNum = document.getElementById('secondNum'),
+        inputter = document.getElementById('inputter'),
+        answer = document.getElementById('answer'),
+        resultBtn = document.getElementById('resultBtn'),
+        clearBtn = document.getElementById('clearBtn'),
+        btnSkip = document.getElementById('btnSkip'),
+        btnR = document.getElementById('btnR'),
+        answerArr = [],
+        userAnswer = parseInt(answerArr.join(''));
 
 
 
@@ -106,7 +106,7 @@ function resultBtnClicked() {
             document.getElementById('lost').classList.add('active');
         }, 600);
         document.getElementById('whiteCard').classList.add('active');
-        document.getElementById('lost').textContent = "Fail :( It Should be " + correctAnswer + ".";
+        document.getElementById('lost').textContent = `Fail :( It Should be ${correctAnswer}.`;
         scoresScoreF += 1;
     }
 
