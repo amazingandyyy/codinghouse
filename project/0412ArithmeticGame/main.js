@@ -91,16 +91,22 @@ function resultBtnClicked() {
 var correctAnswer = parseInt(firstNum.textContent) * parseInt(secondNum.textContent);
     }
     if (userAnswer == correctAnswer) {
+      window.setTimeout(function(){
         document.getElementById('win').classList.add('active');
+      }, 600);
+      document.getElementById('whiteCard').classList.add('active');
         scoresScore += 1;
     } else if (userAnswer !== correctAnswer) {
+      window.setTimeout(function(){
         document.getElementById('lost').classList.add('active');
+      }, 600);
+      document.getElementById('whiteCard').classList.add('active');
         document.getElementById('lost').textContent = "Fail :( It Should be " + correctAnswer + ".";
         scoresScoreF += 1;
     }
 
-    window.setTimeout(showScore, 300);
-    window.setTimeout(slowAlert, 1300);
+    window.setTimeout(showScore, 900);
+    window.setTimeout(slowAlert, 2000);
 }
 
 function showScore() {
@@ -111,6 +117,7 @@ function showScore() {
 function slowAlert() {
     document.getElementById('win').classList.remove('active');
     document.getElementById('lost').classList.remove('active');
+    document.getElementById('whiteCard').classList.remove('active');
     clearBtnClicked();
 
     init();
@@ -118,10 +125,12 @@ function slowAlert() {
 
 function btnSkipClicked() {
     document.getElementById('lost').classList.add('active');
+    document.getElementById('whiteCard').classList.add('active');
     document.getElementById('lost').textContent = "You just skip it.";
 function fun(){
   document.getElementById('win').classList.remove('active');
   document.getElementById('lost').classList.remove('active');
+  document.getElementById('whiteCard').classList.remove('active');
 }
     window.setTimeout(fun, 800);
 

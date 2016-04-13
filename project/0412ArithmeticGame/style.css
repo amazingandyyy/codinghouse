@@ -1,7 +1,7 @@
 body {
     background: url("images/bk.jpg") no-repeat center center fixed;
     background-size: cover;
-    padding-top: 80px;
+    padding-top: 150px;
     text-align: center;
     -webkit-user-select: none;
     /* Chrome all / Safari all */
@@ -15,7 +15,7 @@ body {
     overflow: hidden;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-.whiteCard {
+#whiteCard {
     text-align: right;
     background: white;
     width: 220px;
@@ -23,6 +23,24 @@ body {
     margin: auto;
     position: relative;
     box-shadow: 5px 5px 100px -10px rgba(0, 0, 0, 0.9);
+    transition: .1s all ease-in-out;
+}
+#whiteCard.active {
+    transition: .2s all ease-in-out;
+    height: 285px;
+    box-shadow: 5px 5px 100px -10px rgba(0, 0, 0, 0.9);
+}
+#whiteCard.active #pad_container {
+    background: rgba(43, 50, 72, 1);
+    transition: .2s all ease-in-out;
+    bottom: 15px;
+}
+#whiteCard.active #resultBtn {
+  transition: .2s all ease-in-out;
+}
+#whiteCard.active #btnSkip {
+  opacity: 0.3;
+  transition: .2s all ease-in-out;
 }
 .question {
     padding-right: 8px;
@@ -44,14 +62,15 @@ body {
     opacity: 0;
     transition: .2s all ease-in-out;
 }
-.pad_container {
-    background: rgba(43, 50, 72, 0.9);
+#pad_container {
+    background: rgba(43, 50, 72, 0.95);
     width: 240px;
     text-align: center;
     position: absolute;
     left: -10px;
     bottom: 48px;
     box-shadow: 5px 5px 40px -4px rgba(0, 0, 0, 0.8);
+    transition: .2s all ease-in-out;
     z-index: 99;
 }
 #inputter {
@@ -59,7 +78,7 @@ body {
     padding: 10px 10px;
 }
 #inputter button {
-  text-align: center;
+    text-align: center;
     padding: 8px;
     font-size: 2em;
     min-width: 60px;
@@ -86,9 +105,9 @@ body {
     cursor: grab;
     margin: 0px;
     position: relative;
-    font-weight: 100;
+    font-weight: 200;
+    cursor: pointer;
 }
-
 #inputter button:hover {
     opacity: 1;
 }
@@ -111,7 +130,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 500;
-    transition: .3s background ease-in-out;
+    transition: .5s all ease-in-out;
     z-index: 98;
 }
 #AmazingAdnyyy {
@@ -123,46 +142,45 @@ body {
     z-index: 99;
 }
 #AmazingAdnyyy img {
-  width: 160px;
+    width: 160px;
 }
 #AmazingAdnyyy:hover {
-  bottom: -5px;
-  opacity: 1;
-  transition: .05s all ease-in-out
+    bottom: -5px;
+    opacity: 1;
+    transition: .05s all ease-in-out
 }
 #AmazingAdnyyy:active {
-  transform: scale(0.98);
-  opacity: 1;
+    transform: scale(0.98);
+    opacity: 1;
 }
 #btnSkip {
     position: absolute;
-    top: 140px;
-    right: 30px;
-    color: white;
+    top: -40px;
+    right: 55px;
+    color: #5F5F5F;
     font-size: 1.1em;
     font-weight: 100;
-    background: linear-gradient(-135deg, #FF5050 0%, #D90000 100%);
-    height: 30px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 6px solid white;
+    border-radius: 50px;
+    height: 25px;
     width: 100px;
-    padding: 5px;
+    padding: 0px;
     box-shadow: 5px 5px 100px -10px rgba(0, 0, 0, 0.9);
     outline: none;
     border: none;
-    font-size: 0.8em;
-    color: white;
+    font-size: 0.7em;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     font-weight: 500;
     opacity: 0.9;
 }
-
-#btnSkip:hover{
-  opacity: 1;
+#btnSkip:hover {
+    opacity: 1;
 }
 #btnSkip:active {
-  box-shadow: inset 0px 0px 3px 0px black;
+    box-shadow: inset 0px 0px 3px 0px black;
 }
-
 #resultBtn:hover {
     background: linear-gradient(-135deg, #FF983D 0%, #FF1C1C 100%);
     transition: .3s background ease-in-out;
@@ -235,6 +253,9 @@ body {
     line-height: 1em;
 }
 @media (max-width: 414px) {
+    body {
+        padding-top: 100px;
+    }
     #scoresC {
         top: 5px;
         left: 5px;
@@ -251,14 +272,9 @@ body {
         width: 70px;
         padding: 5px;
     }
-    #btnSkip  {
-        top: 90px;
-        right: 5px;
-        font-size: 0.8em;
-        width: 80px;
-        height: 40px;
-        padding: 10px 5px;
-        z-index: 1;
+    #btnSkip {
+        height: 30px;
+        font-weight: 600;
     }
     #scores {
         font-size: 2.6em;
