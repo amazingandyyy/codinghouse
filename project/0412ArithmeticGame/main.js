@@ -4,9 +4,11 @@ var scoresScore = 0;
 var scoresF = document.getElementById('scoresF');
 var scoresScoreF = 0;
 
+
 function init() {
     showScore()
     document.getElementById('question').style.opacity = "1";
+    document.body.style.zoom = '400%';
     var firstNum = document.getElementById('firstNum');
     var relation = document.getElementById('relation');
     var secondNum = document.getElementById('secondNum');
@@ -21,10 +23,12 @@ function init() {
 
 
     firstNum.textContent = Math.floor(Math.random() * 100);
-    if (Math.floor(Math.random() > 0.5)) {
+    if (Math.floor(Math.random() < 0.33333333)) {
         relation.textContent = "+";
-    } else {
+    } else if(Math.floor(Math.random() > 0.6666666)) {
         relation.textContent = "-";
+    }else{
+      relation.textContent = "*";
     }
     secondNum.textContent = Math.floor(Math.random() * 100);
 
@@ -81,8 +85,10 @@ function resultBtnClicked() {
     var userAnswer = parseInt(answerArr.join(''));
     if (relation.textContent == '+') {
         var correctAnswer = parseInt(firstNum.textContent) + parseInt(secondNum.textContent);
-    } else {
+    } else if(relation.textContent == '-') {
         var correctAnswer = parseInt(firstNum.textContent) - parseInt(secondNum.textContent);
+    }else if(relation.textContent == '*'){
+var correctAnswer = parseInt(firstNum.textContent) * parseInt(secondNum.textContent);
     }
     if (userAnswer == correctAnswer) {
         document.getElementById('win').classList.add('active');
@@ -120,6 +126,6 @@ function fun(){
     window.setTimeout(fun, 800);
 
     clearBtnClicked();
-    scoresScoreF += 0.5;
+    scoresScoreF += 0;
     init();
 }
