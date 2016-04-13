@@ -81,6 +81,7 @@ body {
     padding: 10px 10px;
 }
 #inputter button {
+  cursor: pointer;
     text-align: center;
     padding: 8px;
     font-size: 2em;
@@ -95,6 +96,16 @@ body {
     margin: 0px;
     position: relative;
     font-weight: 100;
+}
+#inputter button:hover,#clearBtn:hover {
+    opacity: 1;
+}
+
+#inputter button.active {
+    opacity: 1;
+}
+#inputter button:active, #clearBtn:active {
+    transform: scale(0.96);
 }
 #clearBtn {
     font-size: 2em;
@@ -111,12 +122,7 @@ body {
     font-weight: 200;
     cursor: pointer;
 }
-#inputter button:hover {
-    opacity: 1;
-}
-#inputter button:active {
-    transform: scale(0.96);
-}
+
 #resultBtn {
     padding: 15px;
     width: 100%;
@@ -135,6 +141,7 @@ body {
     font-weight: 500;
     transition: .5s all ease-in-out;
     z-index: 98;
+    cursor: pointer;
 }
 #AmazingAdnyyy {
     position: absolute;
@@ -185,14 +192,17 @@ body {
     outline: none;
     border: none;
     font-size: 0.7em;
-    text-transform: uppercase;
+    testing text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 500;
     opacity: 0.9;
     z-index: 99;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 #btnSkip:hover {
     opacity: 1;
+    cursor: pointer;
 }
 #btnSkip:active {
     box-shadow: inset 0px 0px 3px 0px black;
