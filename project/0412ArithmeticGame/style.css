@@ -12,6 +12,7 @@ body {
     user-select: none;
     margin: 0;
     height: 100%;
+    position:relative;
     overflow: hidden;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     zoom: 120%;
@@ -257,6 +258,19 @@ body {
     padding: 5px;
     box-shadow: 5px 5px 100px -10px rgba(0, 0, 0, 0.9);
 }
+#scoresCS {
+    position: absolute;
+    top: 140px;
+    left: 30px;
+    color: white;
+    font-size: 0.8em;
+    font-weight: 200;
+    background: linear-gradient(-135deg, #2DBCEA 0%, #2189D5 100%);
+    height: 30px;
+    width: 90px;
+    padding: 5px;
+    box-shadow: 5px 5px 100px -10px rgba(0, 0, 0, 0.9);
+}
 #scoresCF {
     position: absolute;
     top: 30px;
@@ -278,26 +292,38 @@ body {
     font-size: 2.6em;
     line-height: 1em;
 }
-@media (max-width: 414px) {
+@media (max-width: 628px) {
     body {
         padding-top: 100px;
     }
     #scoresC {
         top: 5px;
         left: 5px;
-        font-size: 0.8em;
-        height: 70px;
+        font-size: 0.5em;
+        height: 40px;
+        letter-spacing: 2px;
         width: 70px;
         padding: 5px;
     }
     #scoresCF {
-        top: 5px;
-        right: 5px;
-        font-size: 0.8em;
-        height: 70px;
+      top: 5px;
+      right: 5px;
+      font-size: 0.5em;
+      height: 40px;
+      letter-spacing: 2px;
+      width: 70px;
+      padding: 5px;
+    }
+    #scoresCS {
+        top: 60px;
+        left: 5px;
+        font-size: 0.5em;
+        height: 20px;
         width: 70px;
         padding: 5px;
+        letter-spacing: 2px;
     }
+
     #btnSkip {
         height: 30px;
         font-weight: 600;
@@ -310,6 +336,7 @@ body {
         font-size: 2.6em;
         line-height: 1em;
     }
+
     #lost, #win {
         font-size: 1.1em;
         line-height: 50px;

@@ -3,6 +3,8 @@ var scores = document.getElementById('scores');
 var scoresScore = 0;
 var scoresF = document.getElementById('scoresF');
 var scoresScoreF = 0;
+var scoresS = document.getElementById('scoresS');
+var strikeScore = 0;
 
 
 function init() {
@@ -101,6 +103,7 @@ function resultBtnClicked() {
         }, 600);
         document.getElementById('whiteCard').classList.add('active');
         scoresScore += 1;
+        strikeScore += 1;
     } else if (userAnswer !== correctAnswer) {
         window.setTimeout(function() {
             document.getElementById('lost').classList.add('active');
@@ -108,6 +111,7 @@ function resultBtnClicked() {
         document.getElementById('whiteCard').classList.add('active');
         document.getElementById('lost').textContent = `Fail :( It Should be ${correctAnswer}.`;
         scoresScoreF += 1;
+        strikeScore = 0;
     }
 
     window.setTimeout(showScore, 900);
@@ -117,6 +121,7 @@ function resultBtnClicked() {
 function showScore() {
     scores.textContent = scoresScore;
     scoresF.textContent = scoresScoreF;
+    scoresS.textContent = strikeScore;
 }
 
 function slowAlert() {
