@@ -1,4 +1,3 @@
-
 $(document).ready(init);
 
 function init() {
@@ -8,6 +7,10 @@ function init() {
     $disk.click(diskSelected);
     // $($towerHandler).hover(elementLog);
     $towerHandler.click(handlerClick);
+    window.setTimeout(function() {
+        $msg = $('.msg').html('');
+    }, 800);
+
 }
 
 
@@ -20,6 +23,7 @@ function elementLog() {
 }
 
 function diskSelected() {
+
     $('.disk').removeClass('selected');
     var $this = $(this);
     var $parent = $(this).parent();
@@ -28,9 +32,11 @@ function diskSelected() {
     var diskSelectedSize = $($this).data('size');
     console.log(diskSelectedSize);
     if (diskSelectedSize > $smalledSizeV) {
+      $msg = $('.msg').html("Move the top one");
         $('.disk').removeClass('selected');
     } else if (diskSelectedSize == $smalledSizeV) {
         $(this).addClass('selected');
+        $msg = $('.msg').html('Move the disk');
     }
     console.log('smallest: ', $smalledSizeV);
 
@@ -44,10 +50,13 @@ function handlerClick() {
     var $selectedDisk = $('.disk.selected');
     var selectedDiskSize = $($selectedDisk).data('size');
     var selectedDiskParent = $selectedDisk.parent();
+    var $msg = $('.msg');
+
 
 
     console.log(selectedDiskSize, theLargestSize);
     if (selectedDiskSize < theLargestSize) {
+      $msg = $('.msg').html("");
         function moving(start, destination) {
             var startTower = start[0].id;
             var destinationTower = destination[0].id;
@@ -71,9 +80,10 @@ function handlerClick() {
         }
         moving(selectedDiskParent, thisHandlerParent)
     } else {
+      $msg = $('.msg').html("But you cannot move to this tower.");
         console.log('can not move');
     }
-    if ( $('#tower2').find('div').length === 4 || $('#tower3').find('div').length === 4){
-      alert('Won!');
+    if ($('#tower2').find('div').length === 4 || $('#tower3').find('div').length === 4) {
+        $msg.html('You Won!');
     }
 }
