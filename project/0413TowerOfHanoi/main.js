@@ -3,64 +3,76 @@
 $(document).ready(init);
 
 function init() {
-    var $tower = $('.tower');
-    var $topDisk = $('#tower1').find($('.disk')).first();
-    var $topDisk2 = $('#tower2').find($('.disk')).first();
-    var $topDisk3 = $('#tower3').find($('.disk')).first();
-    $($topDisk).addClass('available');
-    $($topDisk2).addClass('available');
-    $($topDisk3).addClass('available');
-    console.log($topDisk)
-    var $availableDisk = $('.disk.available');
-    var $availableTower= $('.tower.available');
-    $availableDisk.removeClass('selected').click(availableDiskClick);
-    $availableTower.removeClass('selected').click(availableTowerClick);
-
-    var disk1Size = $('#disk1').data('size');
-    var disk2Size = $('#disk2').data('size');
-    var disk3Size = $('#disk3').data('size');
-
+    var $disk = $('.disk');
+    var $towerHandler = $('.handler');
+    // $($disk).hover(elementLog);
+    $($disk).click(diskSelected);
+    // $($towerHandler).hover(elementLog);
+    $($towerHandler).click(handlerClick);
 
 }
-function availableDiskClick() {
-  $('.disk').removeClass('selected');
-  $(this).toggleClass('selected');
-aboutAvailable();
-};
-function availableTowerClick() {
-  $(this).toggleClass('selected');
-};
 
-function aboutAvailable() {
-
-  var $tower = $('.tower');
-  var $selectedDisk = $('.disk.available.selected');
-  $($tower).addClass('available');
-  $($selectedDisk).parent().removeClass('available');
-  var $availableTower= $('.tower.available');
-  $availableTower.mouseover(availableTowerHover);
+function elementLog() {
+    var thisElement = $(this);
+    var thisElementParent = $(thisElement).parent();
+    console.log('element is:', thisElement);
+    console.log('parent is:', thisElementParent);
 }
 
-function availableTowerHover() {
-  var $selectedDisk = $('.disk.available.selected');
-  var selectedDiskSize = $($selectedDisk).data('size');
-  var $topDisk = $(this).find($('.disk'))[0];
-  var topDiskSize = $($topDisk).data('size');
-  if(selectedDiskSize < topDiskSize){
-    var $availableTower= $('.tower.available');
-    $($availableTower).click(behaviorOfMoving);
-  }else if(selectedDiskSize > topDiskSize){
-    $(this).removeClass('available');
-  }
+function diskSelected() {
+    $('.disk').removeClass('selected');
+    var $this = $(this);
+    var $parent = $(this).parent();
+    var $smallesSize = $($parent).find('.sizeScope').first();
+    var $smalledSizeV = $($smallesSize).data('size');
+    var diskSelectedSize = $($this).data('size');
+    console.log(diskSelectedSize);
+    if(diskSelectedSize>$smalledSizeV){
+      $('.disk').removeClass('selected');
+    }else if(diskSelectedSize ==$smalledSizeV){
+      $(this).addClass('selected');
+    }
+    console.log('smallest: ',$smalledSizeV);
+
 }
 
-function behaviorOfMoving() {
-  var startingDisk = 0;
+function handlerClick() {
+    var thisHandler = $(this);
+    var thisHandlerParent = $(thisHandler).parent();
+    var $theLargestDisk = $(thisHandlerParent).find('.sizeScope').first();
+    var theLargestSize = $($theLargestDisk).data('size');
+    var $selectedDisk = $('.disk.selected');
+    var selectedDiskSize = $($selectedDisk).data('size');
+    var selectedDiskParent = $selectedDisk.parent();
+
+
+    console.log(selectedDiskSize, theLargestSize);
+    if (selectedDiskSize < theLargestSize) {
+        function moving(start, destination) {
+
+            var startTower = start[0].id;
+            var destinationTower = destination[0].id;
+            var $selectedDiskForMove = $('.disk.selected').removeClass('selected');
+            var disk1  = $(`#${startTower}`).find('div').first().remove();
+                $(`#${destinationTower}`).prepend(disk1);
+
+            // if (selectedDiskSize === 1) {
+            //   var disk1 = $('<div class="disk sizeScope" id="disk1" data-size="1"></div>').click(diskSelected);
+            //     $(`#${destinationTower}`).prepend(disk1);
+            // } else if (selectedDiskSize === 2) {
+            //   var disk2 = $('<div class="disk sizeScope" id="disk2" data-size="2"></div>').click(diskSelected);;
+            //
+            //     $(`#${destinationTower}`).prepend(disk2);
+            // } else if (selectedDiskSize === 3) {
+            //   var disk3 = $('<div class="disk sizeScope" id="disk3" data-size="3"></div>').click(diskSelected);;
+            //
+            //     $(`#${destinationTower}`).prepend(disk3);
+            // }
+            console.log(selectedDiskSize);
+        }
+        moving(selectedDiskParent, thisHandlerParent)
+    } else {
+        console.log('can not move');
+    }
+
 }
-
-
-
-
-
-
-// http://jsfiddle.net/tovic/mkUJf/

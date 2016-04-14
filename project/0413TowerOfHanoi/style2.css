@@ -1,0 +1,61 @@
+.towerContainer {
+    margin: auto;
+    display: block;
+    padding-top: 60px;
+    text-align: center;
+}
+.tower {
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    padding: 50px 10px 0px 10px;
+    display: inline-block;
+    margin: 20px;
+    width: 15%;
+    min-height: 200px;
+    background: white;
+}
+.tower.available.selected {
+    border: 5px solid rgba(0, 0, 0, 0.7);
+}
+.tower.available:hover {
+    border: 5px solid rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+.tower:hover {}
+.tower.available:active {
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+}
+.disk {
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    height: 30px;
+    text-align: center;
+    margin: 10px auto;
+    background: white;
+}
+.disk:hover {
+    cursor: not-allowed;
+}
+.disk.available:hover {
+    border: 5px solid rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+.tower.available .disk.available:hover{
+
+}
+.disk.available:active {
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+}
+.disk.available.selected {
+    border: 5px solid rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.9);
+}
+#disk1 {
+    width: 50px;
+}
+#disk2 {
+    width: 75px;
+}
+#disk3 {
+    width: 100px;
+}

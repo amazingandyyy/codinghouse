@@ -1,54 +1,57 @@
 .towerContainer {
+  font-family: sans-serif;
     margin: auto;
     display: block;
     padding-top: 60px;
     text-align: center;
 }
+.disk {
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    background: none;
+}
+.disk:hover {
+    border: 5px solid rgba(0, 0, 0, 0.8);
+    background: none;
+}
 .tower {
     border: 5px solid rgba(0, 0, 0, 0.5);
+    background: none;
     padding: 50px 10px 0px 10px;
     display: inline-block;
     margin: 20px;
     width: 15%;
     min-height: 200px;
-    background: white;
+    position: relative;
 }
-.tower.available.selected {
-    border: 5px solid rgba(0, 0, 0, 0.7);
-}
-.tower.available:hover {
-    border: 5px solid rgba(0, 0, 0, 0.8);
-    cursor: pointer;
-}
-.tower:hover {}
-.tower.available:active {
-    border: 5px solid rgba(0, 0, 0, 0.5);
+.handler {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    text-transform: uppercase;
     background: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    color: white;
+    line-height:30px;
+    height: 25px;
+    transition: .2s all ease-in-out;
+    cursor: pointer;
+    z-index: 99;
+}
+.handler:hover {
+  height: 30px;
+  line-height:33px;
 }
 .disk {
-    border: 5px solid rgba(0, 0, 0, 0.5);
     height: 30px;
     text-align: center;
     margin: 10px auto;
-    background: white;
-}
-.disk:hover {
-    cursor: not-allowed;
-}
-.disk.available:hover {
-    border: 5px solid rgba(0, 0, 0, 0.8);
     cursor: pointer;
 }
-.tower.available .disk.available:hover{
-
-}
-.disk.available:active {
-    border: 5px solid rgba(0, 0, 0, 0.5);
-    background: rgba(0, 0, 0, 0.5);
-}
-.disk.available.selected {
-    border: 5px solid rgba(0, 0, 0, 0.7);
-    background: rgba(0, 0, 0, 0.9);
+.disk.selected{
+  background: rgba(0, 0, 0, 0.5);
 }
 #disk1 {
     width: 50px;
