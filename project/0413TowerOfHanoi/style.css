@@ -62,3 +62,30 @@
 #disk3 {
     width: 100px;
 }
+
+
+
+#AmazingAdnyyy {
+    position: absolute;
+    right: 5%;
+    bottom: -30px;
+    opacity: 0.5;
+    box-shadow: inset 0px 0px 3px 0px black;
+    transition: 1s all ease-in-out;
+    z-index: 1;
+    transform: scale(1.4);
+    background: white;
+}
+#AmazingAdnyyy img {
+    width: 160px;
+}
+#AmazingAdnyyy:hover {
+    bottom: -20px;
+    opacity: 1;
+    transition: .25s all ease-in-out;
+    transform: scale(1.42);
+}
+#AmazingAdnyyy:active {
+    transform: scale(1.40);
+    opacity: 1;
+}
