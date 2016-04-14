@@ -1,3 +1,7 @@
+'use strict'
+
+var $disk;
+
 $(document).ready(init);
 
 function init() {

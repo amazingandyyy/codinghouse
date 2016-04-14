@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sumEvens(numbers) {
+            // var filteredArr = numbers.filter((v) => {
+            //     return v % 2 == 0;
+            // });
+
+            var sum = numbers.reduce((prev, next, i, arr) => {
+                if (next % 2 == 0) {
+                    console.log(prev, next, i, arr);
+                    return prev + next;
+                }
+                return prev;
+            },0);
+
+            console.log(sum);
+        }
+        sumEvens([1, 2, 3, 4, 5]);
+    </script>
+
+</body>
+
+</html>
