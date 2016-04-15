@@ -1,52 +1,46 @@
 'use strict';
-
-// var ob = {};
-
 $(function() {
-    $('form').submit(formSubmitted);
-});
+    initializeNameList();
+    $('button.addName').click(addName);
+})
 
+function initializeNameList() {
+    $('ul').empty();
+    // read the names list from storage
+    var nameListFromLocalStorage = JSON.parse(localStorage.names);
 
-function formSubmitted(e) {
-    var i;
-    var obJSON = $('.json').text() || '{}';
-    try {
-        var ob = JSON.parse(obJSON); //parse string into json
-    } catch (err) {
-        var ob = {};
-    }
-    console.log(ob);
-    console.log(localStorage);
-    e.preventDefault();
-    var key = $('.key').val();
-    var value = $('.value').val();
+    // and generate <li>s
+    // then append thsoe <li>s to the list
+    var arr = nameListFromLocalStorage.map(function addItem(name) {
+        return $('<li>').text(name);
+    });
+    $('.nameList').append(arr);
 
-
-    if (!ob[key]) {
-        ob[key] = value;
-    } else {
-        i++;
-        ob[key + 'new'] = value;
-    }
-
-    // updateJSONDisplay();
-
-    $('input[placeholder="key"]').focus();
-
-    var str = JSON.stringify(ob, null, 2); // make json into string
-    $('.json').text(str);
-    read(key, value);
-    $('input').val('');
 }
 
-function read(key, value) {
-    console.log(localStorage);
+function addName() {
+    var newName = $('.newName').val();
+    $('.newName').val('');
 
-    localStorage.key = key;
-    localStorage.value = value;
+    // FIVE STEP
+    //read
+    var namesJSON = localStorage.names;
+
+    //parse
+    var names = JSON.parse(namesJSON); //localStorage.names is string, parse it into an array;
+
+    //modify
+    names.push(newName);
+
+    //stringify
+    var newNameStr = JSON.stringify(names); //names is an array, we stringify it into an string;
+
+    // write
+    localStorage.names = newNameStr;
+
+    var $li = $('<li>');
+
+    console.log(localStorage.names);
+    initializeNameList();
+
 }
-//
-// function updateJSONDisplay() {
-//     var str = JSON.stringify(ob, null, 2);
-//     $('.json').text(str);
-// }
