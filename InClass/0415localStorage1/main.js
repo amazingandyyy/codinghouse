@@ -5,7 +5,11 @@ $(function() {
 })
 
 function initializeNameList() {
-    $('ul').empty();
+    try {
+        var names = JSON.parse(localStorage.names);
+    } catch(err) {
+        var names = '[]'
+    }
     // read the names list from storage
     var nameListFromLocalStorage = JSON.parse(localStorage.names);
 
@@ -14,7 +18,7 @@ function initializeNameList() {
     var arr = nameListFromLocalStorage.map(function addItem(name) {
         return $('<li>').text(name);
     });
-    $('.nameList').append(arr);
+    $('.nameList').prepend(arr);
 
 }
 
@@ -39,8 +43,7 @@ function addName() {
     localStorage.names = newNameStr;
 
     var $li = $('<li>');
-
-    console.log(localStorage.names);
-    initializeNameList();
+    $li.text(newName);
+    $('.nameList').append($li);
 
 }
