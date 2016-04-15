@@ -1,0 +1,60 @@
+div {
+  user-select: none;
+  -webkit-user-select: none;
+
+}
+.red {
+    background-color: #E84520;
+}
+.blue {
+    background-color: #4A90E2;
+}
+.green {
+    background-color: #96CC23;
+}
+.row {
+  padding: 5px;
+}
+.col {
+    padding: 10px 10px;
+}
+.box {
+    margin: auto;
+    min-width: 300px;
+    min-height: 300px;
+    overflow: hidden;
+    transition: .2s all ease-in-out;
+
+}
+.box:hover {
+    box-shadow: 5px 5px 70px -10px rgba(0, 0, 0, 0.5);
+}
+.box::before {
+    content: '';
+    background: rgba(255, 255, 255, 0);
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    border-radius: 100%;
+    min-width: 0px;
+    min-height: 0px;
+    transition: .2s all ease-in-out;
+    cursor: pointer;
+
+}
+.box:hover.box::before {
+    background: rgba(255, 255, 255, 1);
+    bottom: 40px;
+    left: 40px;
+    min-width: 100px;
+    min-height: 100px;
+    cursor: pointer;
+    box-shadow: 0px 0px 100px -10px rgba(0, 0, 0, 0.5);
+
+}
+.box:active.box::before {
+  cursor: pointer;
+    min-width: 200px;
+    min-height: 200px;
+
+}
