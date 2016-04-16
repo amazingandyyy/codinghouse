@@ -15,6 +15,7 @@ function init() {
     $personalProfileForm = $('#personalProfileForm');
     $('#addBtn').click(addBtnClick);
     $('.collection').on('click', '.collection-item', contactSingleClick);
+    $('.delete').on('click', '.collection-item', contactSingleClick);
     $('body').on('click', '.trash', trashClicked);
 
     $addContactForm.on('submit', addContactFormSubmitted);

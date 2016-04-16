@@ -4,15 +4,17 @@
 
 $(function() {
     initializeNameList();
-    $('button.addName').click(addName);
+    $('form').submit(addName);
     $('.nameList').on('dblclick', 'li.name', removeName) //storage(not apply) to the parent element
+    $('.deleteAll').on('dblclick', deleteAll) //storage(not apply) to the parent element
+    $('.delete').on('click', deleteOne) //storage(not apply) to the parent element
 
     // $('li.name').dblclick(removeName);
 })
 
 function initializeNameList() {
     var names = NamesStorage.get();
-    var $lis = names.map(name => $('<li>').addClass('name').text(name));
+    var $lis = names.map(name => $('<li>').addClass('name list-group-item').text(name));
 
     // var $lis = NamesStorage.get().map(function(name) {
     //     return $('<li>').addClass('name').text(name);
@@ -28,13 +30,28 @@ function initializeNameList() {
 console.log();
 }
 
+function deleteOne() {
+  var names = NamesStorage.get();
+  names.splice(0, 1);
+
+  NamesStorage.write(names);
+  initializeNameList();
+}
+function deleteAll() {
+  var names = NamesStorage.get();
+  names.splice(0, names.length);
+
+  NamesStorage.write(names);
+  initializeNameList();
+}
+
+
 function removeName(event) {
   //Create, Read, Update and Delete
     // var deleteTarget = $(this).text();
     var names = NamesStorage.get();
 console.log(event.target);
-    // var index = names.indexOf(event.target);
-    var index = names.index();
+var index = names.indexOf(event.target);
     names.splice(index, 1);
 
     NamesStorage.write(names);
@@ -62,7 +79,8 @@ var NamesStorage = {
     }
 };
 
-function addName() {
+function addName(e) {
+  e.preventDefault();
     var newName = $('.newName').val();
     $('.newName').val('');
 
