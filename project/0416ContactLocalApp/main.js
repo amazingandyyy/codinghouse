@@ -6,6 +6,7 @@ var $collectionUl;
 var filteredList;
 var $personalProfileForm;
 var index;
+var $templateModal;
 
 function init() {
     setTimeout(removeLoaderThenRender, 300);
@@ -13,10 +14,11 @@ function init() {
     var $addContactForm = $('.addContactForm');
     $personalProfileForm = $('#personalProfileForm');
     $('#addBtn').click(addBtnClick);
-    $('.collection').on('click','.collection-item',contactSingleClick);
+    $('.collection').on('click', '.collection-item', contactSingleClick);
+    $('body').on('click', '.trash', trashClicked);
 
     $addContactForm.on('submit', addContactFormSubmitted);
-    $personalProfileForm.on('submit','body', personalProfileFormSubmitted);
+    // $personalProfileForm.on('click', 'body', personalProfileFormSubmitted);
 }
 
 function addBtnClick() {
@@ -24,23 +26,25 @@ function addBtnClick() {
 }
 
 function contactSingleClick() {
-  index = $(this).attr('data-index');
-  console.log(index);
-  var contacts = Storage.get();
-  var $singleModal = $(`#${index}`);
-    $singleModal.openModal();
-    $singleModal.find("#name").val(contacts[index].name)
-      $singleModal.find("#phone").val(contacts[index].phone);
-      $singleModal.find("#address").val(contacts[index].address);
-      $singleModal.find("#email").val(contacts[index].email);
-      $singleModal.find("#imgUrl").val(contacts[index].image);
+    index = $(this).attr('data-index');
+    // console.log(index);
+    var contacts = Storage.get();
+    // var $singleModal = $(`#${index}`);
+    $templateModal.find(".personalProfileForm").attr('data-index', `${index}`);
+
+    $personalProfileForm.openModal();
+    $personalProfileForm.find("#name").val(contacts[index].name)
+    $personalProfileForm.find("#phone").val(contacts[index].phone);
+    $personalProfileForm.find("#address").val(contacts[index].address);
+    $personalProfileForm.find("#email").val(contacts[index].email);
+    $personalProfileForm.find("#imgUrl").val(contacts[index].image);
 
 }
 
 function addContactFormSubmitted(e) {
-  // e.preventDefault();
-  // console.log(e);
-  // debugger;
+    // e.preventDefault();
+    // console.log(e);
+    // debugger;
     $('#addContactForm').closeModal();
     var contacts = Storage.get();
     var $name = $('#name').val(),
@@ -64,28 +68,37 @@ function addContactFormSubmitted(e) {
     renderContacts();
 }
 
-function personalProfileFormSubmitted() {
-  console.log(index);
-  // console.log(index);
-  $('#personalProfileForm').openModal();
-  var contacts = Storage.get();
-  var $targetForm = $(`.personalModal [data-index=${index}]`);
-  console.log($targetForm);
-  var $name = $targetForm.find('#name').val(),
-      $phone = $targetForm.find('#phone').val(),
-      $image = $targetForm.find('#image').val(),
-      $address = $targetForm.find('#address').val(),
-      $email = $targetForm.find('#email').val();
-      contacts[index] = {
-          "name": `${$name}`,
-          "phone": `${$phone}`,
-          "image": `${$image || "https://goo.gl/BdsbmU"}`,
-          "address": `${$address}`,
-          "email": `${$email}`
-      };
-      Storage.write(contacts);
-      console.log(contacts);
 
+
+function personalProfileFormSubmitted() {
+    console.log(index);
+    // console.log(index);
+    $('#personalProfileForm').openModal();
+    var contacts = Storage.get();
+    var $targetForm = $(`.templateModal [data-index=${index}]`);
+    console.log($targetForm);
+    var $name = $targetForm.find('#name').val(),
+        $phone = $targetForm.find('#phone').val(),
+        $image = $targetForm.find('#image').val(),
+        $address = $targetForm.find('#address').val(),
+        $email = $targetForm.find('#email').val();
+    contacts[index] = {
+        "name": `${$name}`,
+        "phone": `${$phone}`,
+        "image": `${$image || "https://goo.gl/BdsbmU"}`,
+        "address": `${$address}`,
+        "email": `${$email}`
+    };
+    Storage.write(contacts);
+    console.log(contacts);
+}
+
+function trashClicked() {
+  console.log(index);
+    var contacts = Storage.get();
+    contacts.splice(index, 1);
+    Storage.write(contacts);
+    renderContacts();
 }
 
 var i = 0;
@@ -93,10 +106,9 @@ var i = 0;
 function renderContacts() {
     var contacts = Storage.get();
     var $individual;
-    var $templateModal;
     for (i = 0; i < contacts.length; i++) {
         // console.log(contacts[2]);
-        $individual = $('.template').clone().attr('data-index',`${i}`);
+        $individual = $('.template').clone().attr('data-index', `${i}`);
         $individual.removeClass('template');
         $individual.find(".name").text(contacts[i].name)
         $individual.find(".phone").text(contacts[i].phone);
@@ -104,15 +116,17 @@ function renderContacts() {
         $individual.find(".email").text(contacts[i].email);
         $individual.find(".imgUrl").attr('src', contacts[i].image);
         $('.collection').prepend($individual);
-        $('.animationF').addClass('fadeIn');
+        $('.animationF').addClass('flipInX');
 
-        $templateModal = $('.templateModal').clone().attr('id',`${i}`);
-        $individual.removeClass('templateModal');
-        $templateModal.find(".personalProfileForm").attr('data-index', `${i}`);
 
-        $('.collection').prepend($templateModal);
 
     };
+
+    $templateModal = $('.templateModal');
+    // $individual.removeClass('templateModal');
+    $templateModal.find(".trash").attr('data-index', `${i}`);
+
+    $('.collection').prepend($templateModal);
     console.log(contacts.length);
 
 }

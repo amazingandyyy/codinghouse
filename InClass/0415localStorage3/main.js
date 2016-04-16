@@ -33,7 +33,8 @@ function removeName(event) {
     // var deleteTarget = $(this).text();
     var names = NamesStorage.get();
 console.log(event.target);
-    var index = names.indexOf(event.target);
+    // var index = names.indexOf(event.target);
+    var index = names.index();
     names.splice(index, 1);
 
     NamesStorage.write(names);
