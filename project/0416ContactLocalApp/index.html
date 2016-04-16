@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Markup</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+
+
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="#!" class="brand-logo">Contact</a>
+                <ul class="right">
+                    <li class="active"><i class="modal-trigger fa fa-plus" aria-hidden="true" id="addBtn"></i></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal Structure -->
+    <div id="addContactForm" class="modal">
+        <div class="modal-content">
+            <h4>Add a contact</h4>
+            <div class="row">
+                <form class="col s12 addContactForm">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="name" type="text" class="validate" required>
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="phone" name="phone" type="text" class="validate">
+                            <label for="phone">phone number</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" name="email" type="text" class="validate">
+                            <label for="email">email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="address" name="address" type="text" class="validate">
+                            <label for="address">address</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="image" name="image" type="text" class="validate">
+                            <label for="image">image URL</label>
+                        </div>
+                    </div>
+                    <button class="waves-effect waves-green btn-flat" type="submit" style="height'40px;"><i class="large material-icons" style="font-size: 2em;">done</i></button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="personalProfileForm" class="templateModal personalModal modal">
+        <div class="modal-content">
+            <h4>Edit the contact</h4>
+            <div class="row">
+                <form class="col s12 personalProfileForm">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="name" type="text" class="validate" required>
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="phone" name="phone" type="text" class="validate">
+                            <label for="phone">phone number</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" name="email" type="text" class="validate">
+                            <label for="email">email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="address" name="address" type="text" class="validate">
+                            <label for="address">address</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="image" name="image" type="text" class="validate">
+                            <label for="image">image URL</label>
+                        </div>
+                    </div>
+                    <button class= "garbage waves-effect waves-red btn-flat" style="height'40px;"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                    <button class="btn waves-effect waves-green" type="submit" style="height'40px;" onclick='personalProfileFormSubmitted()'><i class="large material-icons" style="font-size: 2em;">done</i></button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Close Tag -->
+    <div class="container">
+        <div class="row">
+            <!-- <div class="col s12 m4">
+            <div class="switch">
+                <label>
+                    timestamp
+                    <input type="checkbox">
+                    <span class="lever orderLeverAZ"></span> A-Z
+                </label>
+            </div>
+        </div> -->
+            <div class="col s12">
+                <div class="preloader-wrapper small center active">
+                    <div class="spinner-layer spinner-red-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="collection cleanCall col s12 m12 l8 offset-l2">
+                <div class="collection-item avatar hoverable template animated animationF modal-trigger">
+                    <img class="imgUrl circle" src="https://goo.gl/BdsbmU">
+                    <b><span class="name">xTitle</span></b>
+                    <br>
+                    <span class="address">3649 Mile Rd. CA</span>
+                    <br>
+                    <span class="phone">(400) 333-4444</span>
+                    <br>
+                    <span class="email">example@email.com</span>
+                    <br>
+                    <img src="" alt="">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+<script src="main.js"></script>
+
+</html>

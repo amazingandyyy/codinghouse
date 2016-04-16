@@ -25,18 +25,18 @@ function initializeNameList() {
     // then append thsoe <li>s to the list
 
     $('.nameList').empty().prepend($lis);
-
+console.log();
 }
 
 function removeName(event) {
-  //Create, read, update and delete 
-    var deleteTarget = $(this).text();
-    var theArr = NamesStorage.get();
+  //Create, Read, Update and Delete
+    // var deleteTarget = $(this).text();
+    var names = NamesStorage.get();
+console.log(event.target);
+    var index = names.indexOf(event.target);
+    names.splice(index, 1);
 
-    var index = theArr.indexOf(deleteTarget);
-    theArr.splice(index, 1);
-
-    NamesStorage.write(theArr);
+    NamesStorage.write(names);
     initializeNameList();
 }
 
