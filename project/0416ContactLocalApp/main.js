@@ -91,7 +91,8 @@ function personalProfileFormSubmitted() {
         "email": `${$email}`
     };
     Storage.write(contacts);
-    console.log(contacts);
+    // console.log(contacts);
+    renderContacts();
 }
 
 function trashClicked() {
