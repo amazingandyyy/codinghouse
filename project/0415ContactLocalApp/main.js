@@ -20,6 +20,7 @@ function init() {
 
     $addContactForm.on('submit', addContactFormSubmitted);
     // $personalProfileForm.on('click', 'body', personalProfileFormSubmitted);
+    testing();
 }
 
 function addBtnClick() {
@@ -96,7 +97,7 @@ function personalProfileFormSubmitted() {
 }
 
 function trashClicked() {
-  console.log(index);
+    console.log(index);
     var contacts = Storage.get();
     contacts.splice(index, 1);
     Storage.write(contacts);
@@ -166,4 +167,21 @@ var Storage = {
             console.log("JSON Error: ", err);
         };
     }
+};
+
+function testing() {
+    var result = Test.work('fdfs');
+    var result2 = Test.work2('a');
+    console.log(result);
+    console.log(result2);
+}
+
+var Test = {
+    work: (a) => {
+        return a
+    },
+    work2: (b) => {
+            return b + b
+        }
+        // fail:() => console.log('fail')
 };

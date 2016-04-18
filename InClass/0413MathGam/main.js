@@ -9,6 +9,10 @@ function init() {
     //     numButtons[i].addEventListener('click', numClicked);
     // }
     console.log('ddd');
+    var random = (a) => Math.floor(Math.random()*a);
+
+    console.log(random(100));
+
 }
 
 

@@ -1,0 +1,32 @@
+body {
+  text-align: center;
+  padding-top: 100px;
+  font-family: sans-serif;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+.cups {
+  padding: 50px;
+  width: 60%;
+  height: 50%;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.cup {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 20px;
+  cursor: pointer;
+}
+.cup:hover{
+  transform: scale(1.1);
+}
+.cup:active {
+  border: 2px solid black;
+}

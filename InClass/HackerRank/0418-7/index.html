@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Warmup 8</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <h2>Todo List</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <button class="btn btn-default btn-sm removeBtn">Remove Completed</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th class='col-xs-3'>Done</th>
+              <th class='col-xs-9'>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class='description'>Buy pineapples</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class='description'>Juggle chainsaws</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class='description'>Wrestle grizzlies</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class='description'>Secure candidacy</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class='description'>Take lemur for a walk</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script>
+  $(document).ready(init);
+
+  function init() {
+    var $input = $('input[type=checkbox]');
+    var $removeBtn = $('.removeBtn');
+    // console.log($input);
+    $input.click(checkClicked);
+    $removeBtn.click(removeBtnClicked);
+
+
+  }
+
+  function checkClicked() {
+    $(this).addClass('checked');
+    console.log(this);
+  }
+
+  function removeBtnClicked() {
+    var checkedParent = $('.checked').parent().parent();
+    $(checkedParent).remove();
+    // console.log($('.checked').length);
+    // console.log(checkedParent);
+  }
+
+
+  </script>
+</body>
+</html>
