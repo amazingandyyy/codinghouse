@@ -1,12 +1,14 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', init);
+// document.addEventListener('DOMContentLoaded', init);
+$(document).ready(init);
 
 function init() {
-    var numButtons = document.getElementsByClassName('num');
-    for (var i = 0; i < numButtons.length; i++) {
-        numButtons[i].addEventListener('click', numClicked);
-    }
+    // var numButtons = document.getElementsByClassName('num');
+    // for (var i = 0; i < numButtons.length; i++) {
+    //     numButtons[i].addEventListener('click', numClicked);
+    // }
+    console.log('ddd');
 }
 
 
@@ -14,3 +16,16 @@ function init() {
 function numClicked() {
 
 }
+
+
+//
+// $(function() {
+//     init();
+// });
+//
+// function init() {
+//   var numButtons = document.getElementsByClassName('num');
+//   for (var i = 0; i < numButtons.length; i++) {
+//       numButtons[i].addEventListener('click', numClicked);
+//   }
+// };
