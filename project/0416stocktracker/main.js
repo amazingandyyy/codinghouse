@@ -21,7 +21,9 @@ function deleteTrackingItem(e) {
     // console.log(index);
     stocks.splice(index, 1)
     Storage.write(stocks);
+
     initializeTrackingList();
+check();
 }
 
 function serchSubmitted(e) {
@@ -56,16 +58,17 @@ function initializeTrackingList() {
         $.getJSON(`http://dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol=${companySymbol}&callback=?`, {
             })
             .done(function(data) {
-                var trackingItem = renderTrackingList(data);
+                var trackingItem = renderTrackingList(data).addClass('animated fadeIn');
                 // console.log($(trackingItem));
                 result.push($(trackingItem));
                 $('.trackingListUl').append(result);
+
             })
             .fail(function(err) {
                 console.error('err:', err);
             });
-
     }
+
 }
 
 function renderTrackingList(data) {
