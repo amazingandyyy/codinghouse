@@ -19,13 +19,19 @@ var server = http.createServer((req, res) => {
         case 'cube':
             var num = urlArr[0];
             var result = Math.pow(num, 3); // pow will parse it.
-            res.write(`${result}`)
+            res.write(`${result}`);
             break;
         case 'pow':
             var num = urlArr.shift();
             var pow = urlArr.shift();
             var result = Math.pow(num, pow); // pow will parse it.
-            res.write(`${result}`)
+            res.write(`${result}`);
+            break;
+        case 'sum':
+            var result = urlArr.reduce((a, b) => {
+                return a + Number(b);
+            }, 0);
+            res.write(`${result}`);
             break;
         default:
             var result = 'Defaultttttt'; // pow will parse it.
