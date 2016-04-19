@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=0">
+    <title>Stock Tracker</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+
+
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="#" class="brand-logo"> <i class="material-icons right">trending_up</i> Stock Tracker</a>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Modal Close Tag -->
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l5">
+                <form class="searchForm">
+                    <input type="text" placeholder="Company name or symbol">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        <i class="material-icons right">search</i> Search
+
+                    </button>
+                </form>
+                <div class="collection">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Name</th>
+                                <th>Exchange</th>
+                                <th>Track</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="searchTableBody">
+                            <!-- <tr>
+                            <td>Alvin</td>
+                            <td>Eclair</td>
+                            <td>$0.87</td>
+                            <td><i class="material-icons add">playlist_add</i></td>
+                        </tr> -->
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col s12 m6 l7 trackingListContiner">
+                <h4>Your tracking List</h4>
+              <div class="hint">Double Clicks to delete</div>
+                <ul class="collection trackingListUl">
+
+            </ul>
+            </div>
+
+<!-- Tracking Item Template -->
+            <li class="collection-item trackingItem template">
+                <h5 class="symbol">APPL</h5>
+                <div class="changepercent">+2.33</div>
+                <h8 class="name">Apple Inc</h8>
+                <table>
+                    <tr>
+                        <td>
+                            <h6 class="high">High: <span></span></h6>
+                            <h6 class="low">Low: <span></span></h6>
+                            <h6 class="change">Change: <span></span></h6>
+                        </td>
+                        <td>
+                            <h6 class="open">Open: <span></span></h6>
+                            <h6 class="close">Close: <span></span></h6>
+
+                        </td>
+                    </tr>
+                </table>
+            </li><!-- // Tracking Item Template-->
+
+
+            <!-- <div class="row">
+            <div class="collection cleanCall col s12 m12 l12">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-field="">Symbol</th>
+                            <th data-field="">Name</th>
+                            <th data-field="">Exchange</th>
+                            <th data-field="">LastPrice</th>
+                            <th data-field="">ChangePercent</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="searchTable">
+                        <tr>
+                            <td>Alvin</td>
+                            <td>Eclair</td>
+                            <td>$0.87</td>
+                            <td>$0.87</td>
+                            <td>$0.87</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+        </div>
+        <div class="log">
+
+        </div>
+        <div class="card-panel teal animated logAdd template">
+            <span class="white-text"><i class="fa fa-floppy-o" aria-hidden="true"></i> <span class="message"></span>
+            </span>
+        </div>
+        <div class="card-panel red animated logRemove template">
+            <span class="white-text"><i class="fa fa-chain-broken" aria-hidden="true"></i> <span class="message"></span>
+            </span>
+        </div>
+    </div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+<script src="main.js"></script>
+
+</html>
