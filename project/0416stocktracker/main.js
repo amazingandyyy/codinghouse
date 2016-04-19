@@ -14,8 +14,9 @@ function init() {
 }
 
 function deleteTrackingItem(e) {
-  var symbol = $($(this)[0]).find('.symbol')[0].innerText;
-  var stocks = Storage.get();
+  console.log('delete: ',symbol);
+    var symbol = $($(this)[0]).find('.symbol')[0].innerText;
+    var stocks = Storage.get();
     var index = stocks.indexOf(symbol);
     // console.log(stocks);
     // console.log(index);
@@ -23,7 +24,7 @@ function deleteTrackingItem(e) {
     Storage.write(stocks);
 
     initializeTrackingList();
-check();
+    check();
 }
 
 function serchSubmitted(e) {
@@ -47,17 +48,16 @@ function serchSubmitted(e) {
 }
 
 function initializeTrackingList() {
-    $('.trackingListUl').empty();
+    $('.collection.trackingListUl').empty();
     var stocks = Storage.get();
-    stocks.sort();
+    console.log("initailize: ",stocks);
     // console.log(stocks);
     var companySymbol;
     var result = [];
     for (var i = 0; i < stocks.length; i++) {
         companySymbol = stocks[i];
-        // console.log('companySymbol: ', companySymbol);
-        $.getJSON(`http://dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol=${companySymbol}&callback=?`, {
-            })
+        console.log('companySymbol: ', companySymbol);
+        $.getJSON(`http://dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol=${companySymbol}&callback=?`, {})
             .done(function(data) {
                 var trackingItem = renderTrackingList(data).addClass('animated fadeIn');
                 // console.log($(trackingItem));
@@ -104,8 +104,8 @@ function renderTrackingList(data) {
 }
 
 function check(addBtns) {
-    console.log(addBtns);
-    // $('.add').removeClass('added');
+    // console.log(addBtns);
+    $('.add').removeClass('added');
     var stocks = Storage.get();
     var addBtns = $('.add');
     for (var i = 0; i < addBtns.length; i++) {
@@ -118,7 +118,7 @@ function check(addBtns) {
             // console.log(sumbol, " is not exist.");
         }
     }
-    initializeTrackingList();
+    // initializeTrackingList();
 }
 
 
@@ -152,7 +152,7 @@ function addIt(e) {
         $(newAddLog).fadeIn(0).addClass('fadeInUp');
 
         console.log('Add: ', sumbol);
-        $('.add').addClass('added');
+        // $('.add').addClass('added');
         stocks.push(sumbol);
 
         setTimeout(function() {
@@ -179,6 +179,8 @@ function addIt(e) {
     };
     console.log('After: ', stocks);
     Storage.write(stocks);
+
+    initializeTrackingList();
     check();
 }
 
