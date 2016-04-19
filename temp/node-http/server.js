@@ -9,28 +9,28 @@ var server = http.createServer((req, res) => {
     var urlArr = req.url.split('/');
     urlArr.shift();
     var task = urlArr.shift();
-var result;
     // this is a so-called rout!
     switch (task) {
         case 'square':
             var num = urlArr[0];
-            result = Math.pow(num, 2); // pow will parse it.
+            var result = Math.pow(num, 2); // pow will parse it.
+            res.write(`${result}`)
             break;
         case 'cube':
             var num = urlArr[0];
-            result = Math.pow(num, 3); // pow will parse it.
+            var result = Math.pow(num, 3); // pow will parse it.
+            res.write(`${result}`)
             break;
         case 'pow':
             var num = urlArr.shift();
             var pow = urlArr.shift();
-            result = Math.pow(num, pow); // pow will parse it.
-
+            var result = Math.pow(num, pow); // pow will parse it.
+            res.write(`${result}`)
             break;
         default:
-            result = 'Defaultttttt'; // pow will parse it.
+            var result = 'Defaultttttt'; // pow will parse it.
     }
-
-    res.end(`${result}\n`);
+    res.end('\n');
     // var num = Number(urArr.shift());
     // var result;
     // if (task == 'square') {
