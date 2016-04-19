@@ -120,20 +120,6 @@ function check(addBtns) {
     initializeTrackingList();
 }
 
-// function checkChange() {
-//
-//   if (Number($('.changepercent').text().split('').splice(0,1).join('')) >= 0) {
-//       $('.changepercent').css('background', '#47E167');
-//       console.log($('.changepercent').text().split('').splice(0,1).join(''));
-//   } else if(Number($('.changepercent').text()) < 0){
-//       $('.changepercent').css('background', 'red');
-//       console.log($('.changepercent').text().split('').splice(0,1).join(''));
-//
-//   }
-// }
-//
-// checkChange();
-
 
 function renderResult(resultObj) {
     var $tr = $('<tr>').attr('data-symbol', `${resultObj.Symbol}`);
