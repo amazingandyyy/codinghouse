@@ -1,0 +1,73 @@
+.searchForm {
+  margin-top: 70px;
+}
+.container {
+  max-width: 1000px;
+}
+
+tr {
+  opacity: 0.9;
+}
+tr:hover {
+  opacity: 1;
+  background: #eee;
+  padding-left: 10px;
+}
+tr:hover .add {
+  transform: scale(1.3);
+}
+
+.add {
+  opacity: 0.1;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+}
+.add:hover {
+  opacity: 1;
+}
+.add:active {
+  transform: scale(0.9);
+}
+i.add.added {
+  opacity: 1;
+  color: #ee6e73;
+  transform: scale(1.3);
+}
+.card-panel {
+  max-width: 300px;
+  opacity: 0.9;
+  box-shadow: 5px 5px 50px -5px rgba(0,0,,0,0.5);
+  position: absolute;
+  bottom: 15px;
+  right: 30px;
+  padding: 10px 20px;
+}
+.card-panel.template {
+  display: none;
+}
+.trackingListContiner{
+  margin-top: 120px;
+  margin-left: 50px;
+}
+
+.collection .collection-item.avatar {
+    text-align: left;
+}
+.collection {
+    border: 0px solid #e0e0e0;
+}
+nav ul li {
+  font-size: 1.4em;
+}
+.collection .collection-item {
+    border: 2px solid #e0e0e0;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.collection .collection-item:last-child {
+    border: 2px solid #e0e0e0;
+}
