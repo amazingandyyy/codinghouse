@@ -1,7 +1,6 @@
 'use strict'
 
 $(document).ready(init);
-
 var addBtns;
 
 function init() {
@@ -10,8 +9,20 @@ function init() {
     // $('.searchForm input').keypress(serchSubmitted);
     $('.searchTableBody').on('click', '.add', addIt);
     addBtns = $('.add');
+    initializeTrackingList();
+    $('.trackingListUl').on('dblclick', '.trackingItem', deleteTrackingItem);
 }
 
+function deleteTrackingItem(e) {
+  var symbol = $($(this)[0]).find('.symbol')[0].innerText;
+  var stocks = Storage.get();
+    var index = stocks.indexOf(symbol);
+    // console.log(stocks);
+    // console.log(index);
+    stocks.splice(index, 1)
+    Storage.write(stocks);
+    initializeTrackingList();
+}
 
 function serchSubmitted(e) {
     $('.searchTableBody').empty();
@@ -23,7 +34,7 @@ function serchSubmitted(e) {
         })
         .done(function(data) {
             var result = data.map(renderResult);
-            $('.searchTableBody').append(result);
+            $('.searchTableBody').prepend(result);
 
             console.log(addBtns.length);
             check(addBtns);
@@ -31,8 +42,61 @@ function serchSubmitted(e) {
         .fail(function(err) {
             console.error(err);
         });
+}
 
+function initializeTrackingList() {
+    $('.trackingListUl').empty();
+    var stocks = Storage.get();
+    // console.log(stocks);
+    var companySymbol;
+    var result = [];
+    for (var i = 0; i < stocks.length; i++) {
+        companySymbol = stocks[i];
+        // console.log('companySymbol: ', companySymbol);
+        $.getJSON(`http://dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol=${companySymbol}&callback=?`, {
+            })
+            .done(function(data) {
+                var trackingItem = renderTrackingList(data);
+                // console.log($(trackingItem));
+                result.push($(trackingItem));
+                $('.trackingListUl').append(result);
+            })
+            .fail(function(err) {
+                console.error('err:', err);
+            });
 
+    }
+}
+
+function renderTrackingList(data) {
+    var buildingTrackingItem = $('.collection-item.trackingItem.template').clone();
+    var $trackingItem = buildingTrackingItem.removeClass('template');
+    var changepercent = data.ChangePercent.toString().split('').slice(0, 4).join('');
+    var change = data.Change.toString().split('').slice(0, 4).join('');
+    var changeReault;
+    var changePercentResult;
+    if (Number(changepercent) > 0) {
+        changePercentResult = "+".concat(changepercent).concat('%');
+        // $('.trackingItem .changepercent').css('background-color', '#47E167')
+    } else {
+        changePercentResult = changepercent.concat('%');
+        // $('.trackingItem .changepercent').css('background-color', 'red')
+    }
+    if (Number(change) > 0) {
+        changeReault = "+".concat(change).concat('%');
+    } else {
+        changeReault = change.concat('%');
+    }
+    $trackingItem.find('.symbol').text(`${data.Symbol}`);
+    $trackingItem.find('.changepercent').text(changePercentResult);
+    $trackingItem.find('.name').text(`${data.Name}`);
+    $trackingItem.find('.high span').text(`${data.High}`);
+    $trackingItem.find('.low span').text(`${data.Low}`);
+    $trackingItem.find('.change span').text(changeReault);
+    $trackingItem.find('.open span').text(`${data.Open}`);
+    $trackingItem.find('.close span').text(`${data.LastPrice}`);
+
+    return $trackingItem;
 }
 
 function check(addBtns) {
@@ -50,14 +114,30 @@ function check(addBtns) {
             // console.log(sumbol, " is not exist.");
         }
     }
+    initializeTrackingList();
 }
+
+// function checkChange() {
+//
+//   if (Number($('.changepercent').text().split('').splice(0,1).join('')) >= 0) {
+//       $('.changepercent').css('background', '#47E167');
+//       console.log($('.changepercent').text().split('').splice(0,1).join(''));
+//   } else if(Number($('.changepercent').text()) < 0){
+//       $('.changepercent').css('background', 'red');
+//       console.log($('.changepercent').text().split('').splice(0,1).join(''));
+//
+//   }
+// }
+//
+// checkChange();
+
 
 function renderResult(resultObj) {
     var $tr = $('<tr>').attr('data-symbol', `${resultObj.Symbol}`);
     var $th1 = $('<th>').text(`${resultObj.Symbol}`)
     var $th2 = $('<th>').text(`${resultObj.Name}`)
     var $th3 = $('<th>').text(`${resultObj.Exchange}`);
-    var $th4 = $('<th>').append($('<i>').addClass('material-icons add').attr('data-symbol', `${resultObj.Symbol}-${resultObj.Exchange}`).attr('id', `${resultObj.Name}`).text('playlist_add'));
+    var $th4 = $('<th>').append($('<i>').addClass('material-icons add').attr('data-symbol', `${resultObj.Symbol}`).attr('id', `${resultObj.Name}`).text('playlist_add'));
     var stocks = Storage.get();
 
     $tr.append($th1, $th2, $th3, $th4);
@@ -66,7 +146,7 @@ function renderResult(resultObj) {
 }
 
 function addIt(e) {
-  $('.log').empty();
+    $('.log').empty();
     var $this = e.target;
     var sumbol = $(this).attr('data-symbol');
     var companyName = $(this).attr('id');
@@ -86,7 +166,7 @@ function addIt(e) {
         stocks.push(sumbol);
 
         setTimeout(function() {
-          $(newAddLog).addClass('fadeOutRight');
+            $(newAddLog).addClass('fadeOutRight');
         }, 1000);
 
     } else {
@@ -103,7 +183,7 @@ function addIt(e) {
         stocks.splice(index, 1);
 
         setTimeout(function() {
-          $(newRemoveLog).addClass('fadeOutUp');
+            $(newRemoveLog).addClass('fadeOutUp');
         }, 1000);
 
     };
@@ -116,6 +196,8 @@ var Storage = {
     get: function() {
         try {
             var stocks = JSON.parse(localStorage.stocks);
+            stocks.sort();
+            // console.log(stocks);
         } catch (err) {
             var stocks = [];
         }
