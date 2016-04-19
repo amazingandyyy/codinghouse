@@ -49,6 +49,7 @@ function serchSubmitted(e) {
 function initializeTrackingList() {
     $('.trackingListUl').empty();
     var stocks = Storage.get();
+    stocks.sort();
     // console.log(stocks);
     var companySymbol;
     var result = [];
