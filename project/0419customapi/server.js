@@ -1,10 +1,9 @@
 'use strict';
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 var http = require('http');
 var fs = require('fs');
-var md5 = require('md5');
 
 var server = http.createServer((req, res) => {
   console.log('req: ',req);
