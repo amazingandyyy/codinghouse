@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Server</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,900,300' rel='stylesheet' type='text/css'>
+    <link href="style.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="#!" class="brand-logo">Call Andy's API</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container containerCus">
+
+
+        <!--  -->
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <div class="card">
+                    <form class="gravatarForm">
+                        <div><img class="leadingIcon" src="http://gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e">
+                            <h5>Gravatar searcher</h5></div>
+                        <div class="row">
+                            <div class="col s12">
+                                <input type="email" class="email" placeholder="type in gravatar account email">
+                                <!-- <h8 class="right">example: c@codinghouse.co / amazingandyyy@gmail.com</h8> -->
+                                <br>
+                            </div>
+                        </div>
+
+                        <button class="btn waves-effect waves-light left" type="submit" >
+                            <i class="material-icons right">search</i>Search
+                        </button>
+                        <div class="row">
+                            <div class="col s12 m12 l12 imageContainer">
+                                <img class="image template" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col s12 m6 l6">
+                <div class="card">
+                    <form class="analyzerForm">
+                        <div><img class="leadingIcon" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-business/080873-glossy-black-icon-business-robot.png">
+                            <h5>Sentence analyzer</h5></div>
+                        <input type="text" class="sentence" placeholder="Your sentence.">
+                        <button class="btn waves-effect waves-light" type="submit" >
+                            <i class="material-icons right">search</i>analyze
+                        </button>
+                        <div class="row">
+                            <div class="analyzerContainer">
+                                <h5 class="analyzerResultIs">Result</h5>
+                                <div class="row">
+                                    <div class="col s6">
+                                        <h8>Words:</h8>
+                                        <br>
+                                        <h8>Characters:</h8>
+                                        <br>
+                                        <h8>Average length:</h8>
+                                        <br>
+                                    </div>
+                                    <div class="col s6 subContainerleft">
+                                        <h9 class="wCount">33</h9>
+                                        <br>
+                                        <h9 class="cCount">12</h9>
+                                        <br>
+                                        <h9 class="aCount">43</h9>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                </form>
+                </div>
+            </div>
+            <div class="col s12 m6 l6">
+                <div class="card">
+                    <form class="calculatorForm">
+                        <div><img class="leadingIcon" src="http://static1.squarespace.com/static/5050bf2ee4b03f467b8fe9ff/t/516c360ee4b0e1df4cf01382/1366046223409/Icon_Calculator.jpg">
+                            <h5>Math calculator</h5></div>
+                        <div class="row">
+                            <div class="col s6">
+                                <input type="number" class="number1" placeholder="one number">
+                            </div>
+                            <div class="col s6">
+                                <input type="number" class="number2" placeholder="the other number">
+                            </div>
+                        </div>
+<div class="row">
+  <div class="col s2">
+    <button class="btn waves-effect waves-light " type="submit" data-bahavior="addition">
+        +
+    </button>
+  </div>
+  <div class="col s2">
+    <button class="btn waves-effect waves-light subtraction" type="submit" data-bahavior="subtraction">
+      -
+    </button>
+  </div>
+  <div class="col s2">
+    <button class="btn waves-effect waves-light multiplication" type="submit" data-bahavior="multiplication" >
+        *
+    </button>
+  </div>
+  <div class="col s2">
+    <button class="btn waves-effect waves-light division" type="submit" data-bahavior="division">
+        ÷
+    </button>
+  </div>
+  <div class="col s2">
+    <button class="btn waves-effect waves-light exponents" type="submit" >
+pow    </button>
+  </div>
+</div>
+
+                        <div class="row">
+                            <h8 class="calculatorAnswerIs">answer is</h8>
+                            <h6 class="calculatorAnswer">38</h6>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--  -->
+
+            <div class="col s12 m6 l6">
+                <div class="card">
+                    <form class="ageCalculatorForm">
+                        <div><img class="leadingIcon" src="http://static1.squarespace.com/static/5050bf2ee4b03f467b8fe9ff/t/516c360ee4b0e1df4cf01382/1366046223409/Icon_Calculator.jpg">
+                            <h5>Age calculator</h5></div>
+                        <div class="row">
+                            <div class="col s12">
+                                <input type="number" class="age" placeholder="Your birth year.">
+                            </div>
+
+                        </div>
+
+                        <button class="btn waves-effect waves-light" type="submit" >
+                            <i class="material-icons right">search</i>Calculate
+                        </button>
+                        <div class="row">
+                            <h8 class="ageCalculatorAnswerIs">Your age is</h8>
+                            <h6 class="ageCalculatorAnswer">38</h6>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src='https://code.jquery.com/jquery-2.2.3.min.js'></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

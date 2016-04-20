@@ -10,9 +10,6 @@ module.exports = function(params, res) {
     case 'sum':
         var sum = require('./sum')(params);
         res.write(`${sum}`);
-    case 'pow':
-        var pow = Math.pow(params[0], params[1]);
-        res.write(pow.toString());
       break;
   }
   res.end('\n');
