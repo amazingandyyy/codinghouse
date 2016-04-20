@@ -1,0 +1,9 @@
+body {
+  background: #eee;
+  color: brown;
+  padding-top: 50px;
+  text-align: center;
+}
+#number {
+  font-size: 3em;
+}

@@ -1,0 +1,21 @@
+
+<html>
+<head>
+
+  <title>HR</title>
+</head>
+<body>
+
+  <script>
+  function titleCase(str) {
+      var result = str.split(' ')
+      .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+      console.log(result);
+
+  }
+
+  titleCase('andy cHEN yeha ok');
+</script>
+</body>
+</html>

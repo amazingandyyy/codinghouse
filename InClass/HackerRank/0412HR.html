@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function countBy(x, n) {
+            var arr = [];
+            for (i = x; i <= x * n; i += x) {
+                arr.push(i);
+            }
+            console.log(arr);
+
+        }
+        countBy(4, 3); //[4,8,12]
+
+        function countBy2(x, n) {
+            var arr = [];
+            for (i = x; arr.length < n; i = i + x) {
+                arr.push(i);
+            }
+            console.log(arr);
+
+        }
+    </script>
+
+</body>
+
+</html>

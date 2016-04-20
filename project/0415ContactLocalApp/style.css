@@ -1,0 +1,59 @@
+nav {
+    margin-bottom: 50px;
+}
+.template {
+    display: none;
+}
+.col {
+    text-align: center;
+}
+.collection .collection-item.avatar {
+    text-align: left;
+}
+.collection {
+    border: 0px solid #e0e0e0;
+}
+#addBtn {
+  line-height: 50px;
+    min-width: 70px;
+    font-size: 1em;
+    text-align: center;
+    cursor: pointer;
+}
+nav ul li {
+  font-size: 1.4em;
+}
+.collection .collection-item {
+    border: 2px solid #e0e0e0;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.collection .collection-item:last-child {
+    border: 2px solid #e0e0e0;
+}
+.collection .collection-item.avatar .circle {
+    width: 60px;
+    height: 60px;
+}
+.collection .collection-item.avatar {
+    padding-left: 90px;
+}
+.material-icons {
+    padding: 0px 20px;
+    cursor: pointer;
+}
+.modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat {
+    margin: 30px;
+}
+#addContactForm {
+    text-align: center;
+}
+button.garbage:hover {
+    background-color: rgba(25, 0, 31, 0.5);
+    color: white
+}
+button.garbage {
+  color: rgba(25, 0, 31, 1);
+
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Amazignandyyy API</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,900,300' rel='stylesheet' type='text/css'>
+    <link href="style.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <!-- Compiled and minified JavaScript -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="#!" class="brand-logo">Amazingandyyy API</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container containerCus">
+
+
+        <!--  -->
+        <div class="row">
+            <div class="col s12 m8 offset-m2 l6">
+                <div class="card">
+                    <form class="gravatarForm">
+                        <div>
+                            <img class="leadingIcon" src="http://gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e">
+                            <h5>Gravatar searcher</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <input type="email" class="email" value="/gravatar/">
+                                <div class="sample">
+                                    <b>API CALL SAMPLE</b>
+                                    <br>
+                                    <span class="code">/gravatar/your@email.com</span>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+
+                        <button class="btn waves-effect waves-light left" type="submit">
+                            <i class="material-icons right">search</i>Get
+                        </button>
+                        <div class="row">
+                            <div class="col s12 m12 l12 imageContainerR">
+                                <img class="image template" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col s12 m8 offset-m2 l6">
+                <div class="card">
+                    <form class="analyzerForm">
+                        <div><img class="leadingIcon" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-icons-business/080873-glossy-black-icon-business-robot.png">
+                            <h5>Sentence analyzer</h5></div>
+                        <input type="text" class="sentence" value="/sentence/">
+                        <button class="btn waves-effect waves-light" type="submit">
+                            <i class="material-icons right">search</i>Get
+                        </button>
+                        <div class="sample">
+                            <b>API CALL SAMPLE</b>
+                            <br>
+                            <span class="code">/sentence/this is your sentence.</span>
+                        </div>
+                        <div class="row">
+                            <div class="analyzerContainer hidden">
+                                <h5 class="analyzerResultIs">Result</h5>
+                                <div class="row">
+                                    <div class="col s6">
+                                        <h8>Words:</h8>
+                                        <br>
+                                        <h8>Characters:</h8>
+                                        <br>
+                                        <h8>Average length:</h8>
+                                        <br>
+                                    </div>
+                                    <div class="col s6 subContainerleft">
+                                        <h9 class="clearOut wCount">d</h9>
+                                        <br>
+                                        <h9 class="clearOut cCount">d</h9>
+                                        <br>
+                                        <h9 class="clearOut aCount">d</h9>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col s12 m8 offset-m2 l6">
+                <div class="card cardPadding">
+                    <form class="calculatorForm">
+                        <div>
+                            <img class="leadingIcon" src="http://static1.squarespace.com/static/5050bf2ee4b03f467b8fe9ff/t/516c360ee4b0e1df4cf01382/1366046223409/Icon_Calculator.jpg">
+                            <h5>Math calculator</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <input type="text" class="input" value="/math/">
+                                <div class="calculatorForm0 sample">
+                                    <b>API CALL SAMPLE</b>
+                                    <br>
+                                    <span class="code calculatorForm0">/math/sum/2/3 //=5</span>
+                                    <br>
+                                    <span class="code calculatorForm0">/math/diff/10/3 //=7</span><br>
+                                  <span class="code calculatorForm0">/math/divide/12/3  //=4</span><br>
+                                  <span class="code calculatorForm0">/math/product/2/6  //=12</span><br>
+                                  <span class="code calculatorForm0">/math/pow/2/5 //=32</span>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+
+                        <button class="btn waves-effect waves-light left" type="submit">
+                            <i class="material-icons right">search</i>Get
+                        </button>
+                        <div class="row">
+                            <div class="col s12 m12 l12 imageContainer">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h8 class="calculatorAnswerIs">answer is</h8>
+                            <h6 class="calculatorAnswer clearOut">36</h6>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="col s12 m8 offset-m2 l6">
+                <div class="card cardPadding">
+                    <form class="ageCalculatorForm">
+                        <div>
+                            <img class="leadingIcon" src="http://static1.squarespace.com/static/5050bf2ee4b03f467b8fe9ff/t/516c360ee4b0e1df4cf01382/1366046223409/Icon_Calculator.jpg">
+                            <h5>Age calculator</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <input type="text" class="input" value="/age/">
+                                <div class="sample">
+                                    <b>API CALL SAMPLE</b>
+                                    <br>
+                                    <span class="code">/age/19920323</span>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+
+                        <button class="btn waves-effect waves-light left" type="submit">
+                            <i class="material-icons right">search</i>Get
+                        </button>
+                        <div class="row">
+                            <div class="col s12 m12 l12 imageContainer">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h8 class="ageCalculatorAnswerIs">answer is</h8>
+                            <h6 class="ageCalculatorAnswer clearOut"></h6>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--  -->
+
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src='https://code.jquery.com/jquery-2.2.3.min.js'></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/en-ca.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

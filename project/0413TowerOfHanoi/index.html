@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tower Of Hanoi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="towerContainer">
+      <h1 class="title">Tower Of Hanoi</h1>
+      <h1 class="msg">New Game</h1>
+        <div class="tower" id="tower1">
+            <div class="disk sizeScope" id="disk1" data-size="1"></div>
+            <div class="disk sizeScope" id="disk2" data-size="2"></div>
+            <div class="disk sizeScope" id="disk3" data-size="3"></div>
+            <div class="handler sizeScope" id="handler1" data-size="4">move here</div>
+        </div>
+        <div class="tower" id="tower2">
+
+          <!-- <div class="disk sizeScope" id="disk2" data-size="2"></div> -->
+          <div class="handler sizeScope" id="handler2" data-size="4">move here</div>
+        </div>
+        <div class="tower" id="tower3" data-size="0">
+
+          <div class="handler sizeScope" id="handler3" data-size="4">move here</div>
+        </div>
+    </div>
+    <a href="http://amazingandyyy.github.io/" target="_blank">
+      <div id="AmazingAdnyyy"><img src="images/logo.jpg" /></div>
+  </a>
+</body>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="main.js"></script>
+
+</html>
