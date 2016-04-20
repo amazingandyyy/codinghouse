@@ -3,6 +3,7 @@
 $(document).ready(init);
 
 function init() {
+  $('.clearOut').text('');
     $('form.gravatarForm').submit(gravatarFormSubmitted);
     $('form.analyzerForm').submit(analyzerFormSubmitted);
     $('form.calculatorForm').submit(calculatorFormSubmitted);
@@ -14,12 +15,12 @@ function gravatarFormSubmitted(e) {
     var email = $('.gravatarForm .email').val();
     console.log('Input: ', email);
 
-    $.get(`/gravatar/${email}`)
+    $.get(`${email}`)
         .done(function(data) {
             console.log('data: ', data);
             var $newImage = $('.image.template').clone();
             $newImage.removeClass('template');
-            $($newImage).attr('src', `http://gravatar.com/avatar/${data}`);
+            $($newImage).attr('src', `http://gravatar.com/avatar/${data}`).addClass('animated bounceIn');
             console.log('$newImage: ',$newImage);
             $('.imageContainer').append($newImage);
 
@@ -35,10 +36,12 @@ function analyzerFormSubmitted(e) {
 
     $.get(`/sentence/${sentence}`)
         .done(function(data) {
-            console.log('data: ', data);
-            // $('.wCount').text(`${data[wCount]}`);
-            // $('.cCount').text(`${data[cCount]}`);
-            // $('.aCount').text(`${data[aCount]}`);
+            // console.log('data: ', data);
+            console.log('data2: ', data.split('/'));
+            var dataArr = data.split('/');
+            $('.wCount').text(`${dataArr[0]}`);
+            $('.cCount').text(`${dataArr[1]}`);
+            $('.aCount').text(`${dataArr[2]}`);
         })
         .fail(function(err) {
             console.log('analyzerFormSubmitted err: ',err);
@@ -46,12 +49,9 @@ function analyzerFormSubmitted(e) {
 }
 function calculatorFormSubmitted(e) {
     e.preventDefault();
-    var num1 = $('.calculatorForm .number1').val();
-    var num2 = $('.calculatorForm .number2').val();
-    console.log('Input calculatorForm: ', number1, number2);
-    var behavior =  $(e.target).attr('data-bahavior');
-    console.log('behavior: ', behavior);
-    $.get(`/math/${behavior}/${num1}/${num2}`)
+    var input = $('.calculatorForm .input').val();
+    console.log('Input calculatorForm: ', input);
+    $.get(`${input}`)
         .done(function(data) {
             console.log('data: ', data);
             $('.calculatorAnswer').text(`${data}`);
@@ -62,10 +62,10 @@ function calculatorFormSubmitted(e) {
 }
 function ageCalculatorFormSubmitted(e) {
     e.preventDefault();
-    var year = $('.ageCalculatorForm .age').val();
+    var year = $('.ageCalculatorForm .input').val();
     console.log('Input ageCalculatorForm: ', age);
 
-    $.get(`/age/${year}`)
+    $.get(`/${year}`)
         .done(function(data) {
             console.log('data: ', data);
             $('.ageCalculatorAnswer').text(`${data}`);

@@ -11,21 +11,24 @@ body{
 }
 .image, .leadingIcon{
   opacity: 0.9;
-  box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.8);
+  /*box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.8);*/
   border: 2px solid #eee;
-  border-radius: 100%;
-  width: 100px;
-  height: 100px;
+  border-radius: 10px;
+  width: 70px;
+  height: 70px;
   margin: auto;
   margin-left: 5px;
   margin-right: 5px;
   transition: .1s all ease-in-out;
 }
+.image {
+  margin-bottom: 40px;
+  transform: scale(2);
+}
 .leadingIcon{
   width: 50px;
   height: 50px;
-  box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.7);
-
+  box-shadow: inset 0px -1px 8px 1px rgba(0,0,0,0.7);
 }
 .image:hover{
   opacity: 1;
@@ -35,14 +38,41 @@ body{
   margin-top: 50px;
 }
 
+input {
+  font-family: 'Inconsolata';
+}
+
 .card {
+  position: relative;
   text-align: center;
   margin-top: 10px;
-  padding: 30px 50px;
+  padding: 40px 50px 100px 50px;
   background: #fff;
   /*border: 2px solid #eee;*/
   border-radius: 5px;
 }
+
+.sample {
+  position: absolute;
+  width: 100%;
+  background: #eee;
+  color: black;
+  padding: 10px 5px 40px 5px;
+  bottom: 0px;
+  left: 0;
+  line-height: 40px;
+}
+
+.sample span {
+  font-family: 'Inconsolata';
+  width: 80%;
+  background: #343C4B;
+  color: #8EDB43;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
 .calculatorAnswerIs, .analyzerResultIs,.ageCalculatorAnswerIs{
   font-size: 1em;
   display: block;
@@ -50,12 +80,12 @@ body{
   color: rgba(0,0,0,0.5);
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding-top: 50px;
 }
 .calculatorAnswer,.ageCalculatorAnswer{
   /*padding-top: 30px;*/
   font-size: 7em;
   font-weight: 100;
+  padding-bottom: 50px;
 }
 .analyzerContainer {
   text-align: left;
@@ -76,32 +106,7 @@ font-weight: 100;
   font-size: 1.03em;
 }
 
-.calculatorForm button {
-  width: 45px;
-  height: 45px;
-  border-radius: 100px;
-  padding: 0px;
-  font-size: 2em;
-}
-.calculatorForm button.exponents {
-  width: 60px;
-  height: 45px;
-  border-radius: 100px;
-  padding: 0px;
-  font-size: 1em;
-}
-.calculatorForm button.multiplication {
-  padding-top: 15px;
-  font-size: 2.7em;
-}
-.calculatorForm button.division {
-  padding-top: -5px;
-  font-size: 1.8em;
-}
-.calculatorForm button.subtraction {
-  padding-top: -10px;
-  font-size: 2.1em;
-}
+
 
 .calculatorForm .col.s2 {
   width: 70px;
