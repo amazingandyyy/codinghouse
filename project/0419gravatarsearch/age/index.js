@@ -1,18 +1,19 @@
 'use strict';
 
+var moment = require('moment');
+
 module.exports = function(params, res) {
 
-  // console.log(urlArr);
-
-  var operation = params.shift();
-  // console.log(operation);
-  switch (operation) {
-    case 'sum':
-        var sum = require('./sum')(params);
-        res.write(`${sum}`);
-      break;
-  }
-  res.end('\n');
+  var time = params.shift();
+console.log(time);
+var year = moment(`${time}`, "YYYYMMDD").fromNow();
+var result = year.split(' ').slice(0,1);
+result.push('yrs');
+result.push('old');
+var result2 = result.join(' ');
+console.log('result2: ',result2);
+// console.log(result);
+  res.end(`${result2}`);
 
 
   // var randNum = randNum();

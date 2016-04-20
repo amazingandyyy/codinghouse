@@ -3,7 +3,7 @@
 $(document).ready(init);
 
 function init() {
-  $('.clearOut').text('');
+    $('.clearOut').text('');
     $('form.gravatarForm').submit(gravatarFormSubmitted);
     $('form.analyzerForm').submit(analyzerFormSubmitted);
     $('form.calculatorForm').submit(calculatorFormSubmitted);
@@ -21,20 +21,22 @@ function gravatarFormSubmitted(e) {
             var $newImage = $('.image.template').clone();
             $newImage.removeClass('template');
             $($newImage).attr('src', `http://gravatar.com/avatar/${data}`).addClass('animated bounceIn');
-            console.log('$newImage: ',$newImage);
-            $('.imageContainer').append($newImage);
+            console.log('$newImage: ', $newImage);
+            $('.imageContainerR').append($newImage);
 
         })
         .fail(function(err) {
-            console.log('gravatarFormSubmitted err: ',err);
+            console.log('gravatarFormSubmitted err: ', err);
         });
 }
+
 function analyzerFormSubmitted(e) {
+    $('.analyzerContainer').addClass('hidden')
     e.preventDefault();
     var sentence = $('.analyzerForm .sentence').val();
     console.log('Input sentence: ', sentence);
 
-    $.get(`/sentence/${sentence}`)
+    $.get(`${sentence}`)
         .done(function(data) {
             // console.log('data: ', data);
             console.log('data2: ', data.split('/'));
@@ -42,11 +44,13 @@ function analyzerFormSubmitted(e) {
             $('.wCount').text(`${dataArr[0]}`);
             $('.cCount').text(`${dataArr[1]}`);
             $('.aCount').text(`${dataArr[2]}`);
+            $('.analyzerContainer.hidden').removeClass('hidden')
         })
         .fail(function(err) {
-            console.log('analyzerFormSubmitted err: ',err);
+            console.log('analyzerFormSubmitted err: ', err);
         });
 }
+
 function calculatorFormSubmitted(e) {
     e.preventDefault();
     var input = $('.calculatorForm .input').val();
@@ -55,22 +59,35 @@ function calculatorFormSubmitted(e) {
         .done(function(data) {
             console.log('data: ', data);
             $('.calculatorAnswer').text(`${data}`);
+            $('.calculatorForm0.sample').removeClass('bounceInUp').addClass('animated bounceOutDown');
+
+            setTimeout(function() {
+                $('.calculatorForm0.sample').removeClass('bounceOutDown').addClass('bounceInUp');
+            }, 1800);
+            setTimeout(function() {
+                $('.calculatorAnswer').text('');
+            }, 2000);
+
         })
         .fail(function(err) {
-            console.log('calculatorFormSubmitted err: ',err);
+            console.log('calculatorFormSubmitted err: ', err);
         });
 }
+
 function ageCalculatorFormSubmitted(e) {
     e.preventDefault();
     var year = $('.ageCalculatorForm .input').val();
-    console.log('Input ageCalculatorForm: ', age);
+    console.log('Input ageCalculatorForm: ', year);
 
-    $.get(`/${year}`)
+    $.get(`${year}`)
         .done(function(data) {
             console.log('data: ', data);
-            $('.ageCalculatorAnswer').text(`${data}`);
+            $('.ageCalculatorAnswer').text(`${data}`).addClass('animated bounceIn');
+            setTimeout(function() {
+                $('.calculatorForm0.sample').removeClass('animated bounceIn');
+            }, 1000);
         })
         .fail(function(err) {
-            console.log('err: ',err);
+            console.log('err: ', err);
         });
 }

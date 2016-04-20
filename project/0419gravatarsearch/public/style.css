@@ -14,8 +14,8 @@ body{
   /*box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.8);*/
   border: 2px solid #eee;
   border-radius: 10px;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   margin: auto;
   margin-left: 5px;
   margin-right: 5px;
@@ -34,8 +34,8 @@ body{
   opacity: 1;
   transform: scale(1.05);
 }
-.imageContainer{
-  margin-top: 50px;
+.imageContainerR{
+  margin-top: 40px;
 }
 
 input {
@@ -50,6 +50,10 @@ input {
   background: #fff;
   /*border: 2px solid #eee;*/
   border-radius: 5px;
+  min-height: 500px
+}
+.card.cardPadding{
+  padding-bottom: 150px;
 }
 
 .sample {
@@ -73,7 +77,7 @@ input {
   margin-top: 10px;
 }
 
-.calculatorAnswerIs, .analyzerResultIs,.ageCalculatorAnswerIs{
+.calculatorAnswerIs, .analyzerResultIs, .ageCalculatorAnswerIs{
   font-size: 1em;
   display: block;
   font-weight: 700;
@@ -83,7 +87,7 @@ input {
 }
 .calculatorAnswer,.ageCalculatorAnswer{
   /*padding-top: 30px;*/
-  font-size: 7em;
+  font-size: 3em;
   font-weight: 100;
   padding-bottom: 50px;
 }
@@ -106,8 +110,12 @@ font-weight: 100;
   font-size: 1.03em;
 }
 
-
-
 .calculatorForm .col.s2 {
   width: 70px;
+}
+.calculatorForm{
+  margin-bottom: 60px;
+}
+.hidden {
+  display: none;
 }
