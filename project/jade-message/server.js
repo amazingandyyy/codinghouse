@@ -32,8 +32,8 @@ http.createServer((req, res) => {
                 res.end(html);
                 break;
               }
-            case '/chat': {
-                 html = jade.renderFile('./views/chat.jade', {
+            case '/post': {
+                 html = jade.renderFile('./views/post.jade', {
                   active: "active",
                   title: "Chat",
                   theme: 'readable'

@@ -1,0 +1,50 @@
+extends ./layout.jade
+
+block content
+  .container
+    .block
+      form.messageDiv
+        .imgDiv
+          if(imageUrl)
+            img(src=`#{imageUrl}`)
+          else
+            i.glyphicon.glyphicon-user
+        .panel.panel-default.responsive
+          .panel-heading
+            span
+              input(class="name" placeholder="name")
+            span  
+          .panel-body
+            input(class="message" placeholder="message")
+    .block
+      .messageDiv
+        .imgDiv
+          if(imageUrl)
+            img(src=`#{imageUrl}`)
+          else
+            i.glyphicon.glyphicon-user
+        .panel.panel-default.responsive
+          .panel-heading 
+            if(name)
+              span #{name}
+            else
+              span Anonymous
+            span  
+            if(timeStamp)
+              span.timeStamp #{timeStamp}
+          .panel-body
+            | #{message} No content
+            
+  //- .chatBox
+  //-   .container
+  //-     form.messageInput
+  //-       .row
+  //-         .col-xs-6
+  //-           input.form-control(class="name" type='text', placeholder='Your name')
+  //-         .col-xs-6
+  //-           input.form-control(class="image" type='text', placeholder='Your image URL')
+  //-         .col-xs-12
+  //-           .input-group
+  //-             input.form-control(class="message" type='text', placeholder='Your message')
+  //-             span.input-group-btn
+  //-               button.btn.btn-default(type='submit') send
