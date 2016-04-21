@@ -2,8 +2,28 @@ extends ./layout.jade
 
 block content
   .container
-    .panel.panel-default.messageDiv
-      .panel-body
-        | Basic panel example
-
-   
+    .block
+      .messageDiv
+        .imgDiv 
+          i.glyphicon.glyphicon-user
+        .panel.panel-default.responsive
+          .panel-heading 
+            span Amazingandyyy
+          .panel-body
+            | Basic panel example 
+    .block
+      .messageDiv
+        .imgDiv
+          i.glyphicon.glyphicon-user
+        .panel.panel-default.responsive
+          .panel-heading 
+            span Amazingandyyy
+          .panel-body
+            | Basic panel example Basic panel examplsi 
+  .chatBox
+    .container
+      form.messageInput
+        .input-group
+          input.form-control(type='text', placeholder='Your message')
+          span.input-group-btn
+            button.btn.btn-default(type='submit') send

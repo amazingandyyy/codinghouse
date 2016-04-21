@@ -1,25 +1,103 @@
-.navbar {
-  border-radius: 0px;
+body{
+  /*position: relative;*/
+  /*min-width: 544px;*/
+  font-family: sans-serif;
+  height: 100%;
 }
-.intro{
-  padding: 40px 10px;
-  font-size: 3.5em;
-  text-align: center;
-  display: none;
+
+.navbar {
+    border-radius: 0px;
+}
+.intro {
+    padding: 40px 10px;
+    font-size: 3.5em;
+    text-align: center;
+    display: none;
 }
 .fa {
-  color: #4582EB;
+    color: #4582EB;
 }
-.intro h3{
-  font-size: 0.4em;
-  font-weight: 100;
-  text-align: center;
+.intro h3 {
+    font-size: 0.4em;
+    font-weight: 100;
+    text-align: center;
 }
 .container .jumbotron, .container-fluid .jumbotron {
-  margin-top: 7%;
-  display: none;
-  padding:  30px 50px;
+    margin-top: 7%;
+    display: none;
+    padding: 30px 50px;
 }
-.messageDiv{
-  float: left;
+.container {
+  position: relative;
+}
+.messageDiv {
+    float: left;
+    /*border: 1px solid black;*/
+}
+.messageDiv .imgDiv {
+    border: 1px solid #eee;
+    overflow: hidden;
+    display: inline-block;
+    float: left;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    font-size: 1.3em;
+    text-align: center;
+    line-height: 40px;
+}
+.panel {
+    font-size: 0.95em;
+    margin-left: 12px;
+  position: absolute;
+  left: 56px;
+    max-width: 450px;
+    border-radius: 4px;
+}
+.panel-body {
+  padding: 7px 13px;
+
+}
+.panel-heading {
+    padding-top: 4px;
+    padding-left: 8px;
+    padding-bottom: 3px;
+    font-size: 0.8em;
+}
+.panel-heading span:first-child {
+    font-weight: 600;
+}
+.block {
+  width: 100%;
+  /*background: black;*/
+  min-height: 70px;
+}
+.chatBox {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  /*background: black;*/
+  padding: 10px 0px;
+  width: 100%;
+}
+/*.chatBox input{
+  outline: none;
+  box-shadow: none;
+  border: none;
+}*/
+.form-control:focus{
+  outline: none;
+  border: 1px solid rgba(0,0,0,0.3);
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  /*border: 1px solid #eee ;
+/*}*/
+/*.input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group{
+  outline: none;
+}*/
+
+@media (min-width: 768px){
+  .messageDiv{
+    width: 300px;
+  }
 }
