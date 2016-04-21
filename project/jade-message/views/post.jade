@@ -16,11 +16,12 @@ block content
             span  
           .panel-body
             input(class="message" placeholder="message")
+        input(type='submit', style='position: absolute; left: -9999px')
     .block
       .messageDiv
         .imgDiv
           if(imageUrl)
-            img(src=`#{imageUrl}`)
+            img(src='#{imageUrl}')
           else
             i.glyphicon.glyphicon-user
         .panel.panel-default.responsive
@@ -33,8 +34,7 @@ block content
             if(timeStamp)
               span.timeStamp #{timeStamp}
           .panel-body
-            | #{message} No content
-            
+            | #{message}
   //- .chatBox
   //-   .container
   //-     form.messageInput
