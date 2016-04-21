@@ -1,0 +1,25 @@
+.navbar {
+  border-radius: 0px;
+}
+.intro{
+  padding: 40px 10px;
+  font-size: 3.5em;
+  text-align: center;
+  display: none;
+}
+.fa {
+  color: #4582EB;
+}
+.intro h3{
+  font-size: 0.4em;
+  font-weight: 100;
+  text-align: center;
+}
+.container .jumbotron, .container-fluid .jumbotron {
+  margin-top: 7%;
+  display: none;
+  padding:  30px 50px;
+}
+.messageDiv{
+  float: left;
+}

@@ -1,0 +1,26 @@
+extends ./layout.jade
+
+block content
+  .container
+      .jumbotron
+        h1 jMessage!
+        p Welcome to jMessage, a chat app built with Jade.
+        p
+          a.btn.btn-primary.btn-lg(href='/chat', role='button') Chat Now
+      .row
+        .col-xs-12.col-sm-3.col-lg-3
+          .intro
+            i.fa.fa-commenting-o
+            h3 simple
+        .col-xs-12.col-sm-3.col-lg-3
+          .intro
+            i.fa.fa-coffee
+            h3 free
+        .col-xs-12.col-sm-3.col-lg-3
+          .intro
+            i.fa.fa-lock
+            h3 safe
+        .col-xs-12.col-sm-3.col-lg-3
+          .intro
+            i.fa.fa-thumbs-o-up
+            h3 open source

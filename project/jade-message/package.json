@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "node-static": "^0.7.7",
+    "qs": "^6.1.0"
   }
 }
