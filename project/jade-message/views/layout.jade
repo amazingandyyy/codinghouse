@@ -11,7 +11,7 @@ html(lang="en")
 		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css")
 		link(rel="stylesheet", href="style.css")
 
-		script(src="http://code.jquery.com/jquery-2.2.3.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js")
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js")
 		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
 		script(src="main.js")
@@ -37,10 +37,10 @@ html(lang="en")
 								| Themes 
 								span.caret
 							ul.dropdown-menu 
-								each val in ["Cerulean", "Cosmo", "Cyborg", "Darkly", "Flatly", "Journal", "Lumen", "Paper", "Readable", "Sandstone", "Simplex", "Slate", "Spacelab", "Superhero", "United", "Yeti"]
+								each theme in ["Cerulean", "Cosmo", "Cyborg", "Darkly", "Flatly", "Journal", "Lumen", "Paper", "Readable", "Sandstone", "Simplex", "Slate", "Spacelab", "Superhero", "United", "Yeti"]
 									li
-										a(class="themeE")= val
-										//- a(class="themeE" href='?theme/#{val}')= val
+										//- a(class="themeE")= val
+										a(class="themeE" href='/?theme=#{theme}')= theme
 				
 
 

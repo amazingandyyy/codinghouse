@@ -10,18 +10,15 @@ let nodeStatic = require('node-static');
 let file = new nodeStatic.Server('./public');
 
 http.createServer((req, res) => {
-        console.log('req: ', req);
-        console.log('reqUrl: ', req.url);
+        // console.log('req: ', req);
         let html;
-        let qsParts = req.url.split('?');
-        console.log('qsParts: ',qsParts);
-        let path = qsParts[0];
-        var theme;
-        if (qsParts[1]) {
-            var query = qs.parse(qsParts[1]);
-            console.log('query');
-            theme = qsParts[1];
-        }
+      let qsParts = req.url.split('?');
+      let path = qsParts[0];
+      var theme;
+      if(qsParts[1]){
+        var query = qs.parse(qsParts[1]);
+        theme = query['theme'].toLowerCase();
+      }
 
         console.log('path: ', path);
         console.log('theme: ', theme);
@@ -32,7 +29,7 @@ http.createServer((req, res) => {
                 {
                     html = jade.renderFile('./views/index.jade', {
                         title: "Jade-App",
-                        theme: 'readable'
+                        theme: theme
                     })
                     res.end(html);
                     break;
@@ -42,23 +39,23 @@ http.createServer((req, res) => {
                     html = jade.renderFile('./views/post.jade', {
                         active: "active",
                         title: "Chat",
-                        theme: 'readable'
-                    })
-                    res.end(html);
-                    break;
-                }
-            case '/theme':
-                {
-                  console.log('themeYYY: ',theme);
-                    html = jade.renderFile('./views/index.jade', {
-                        active: "active",
-                        title: "Chat",
                         theme: theme
                     })
-                    res.write(html2);
                     res.end(html);
                     break;
                 }
+            // case '/theme':
+            //     {
+            //       console.log('themeYYY: ',theme);
+            //         html = jade.renderFile('./views/index.jade', {
+            //             active: "active",
+            //             title: "Chat",
+            //             theme: theme
+            //         })
+            //         res.write(html2);
+            //         res.end(html);
+            //         break;
+            //     }
             case '/send':
                 {
                   var name = query['name'],
