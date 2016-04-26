@@ -78,7 +78,4 @@ exports.deleteById = function(id, cb) {
     });
 
 
-
-
-
 }
