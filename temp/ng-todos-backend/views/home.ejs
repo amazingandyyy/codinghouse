@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Balance App</title>
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://bootswatch.com/united/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand navbar-center" href="/">
+                    <i class="glyphicon glyphicon-piggy-bank"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand navbar-center" href="/">
+                    <i class="glyphicon glyphicon-piggy-bank"></i>
+                </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+    <div ng-app='myApp' ng-controller='mainCtrl' class="container-fluid" style="padding-top: 40px">
+        <div class="row">
+            <div class="col-sm-2">
+                <form ng-submit="addRecord()">
+                    <h2>New Records</h2>
+                    <div class="form-group">
+                        <label for="">Date</label>
+                        <input type="date" class="form-control" ng-model='newRecord.date'>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Description</label>
+                        <input type="text" class="form-control" placeholder="description..." ng-model='newRecord.description' required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Debits</label>
+                        <input type="number" class="form-control" placeholder="$" ng-model='newRecord.debits' data-ng-disabled="newRecord.credits" ng-value="newRecord.credits? newRecord.debits = 0 : null">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Credits</label>
+                        <input type="number" class="form-control" placeholder="$" ng-model='newRecord.credits' data-ng-disabled="newRecord.debits" ng-value="newRecord.debits? newRecord.credits = 0 : null">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Notes</label>
+                        <textarea rows="3" type="text" class="form-control" placeholder="notes" ng-model='newRecord.notes'></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-primary">Add</button>
+                </form>
+                <hr>
+
+            </div>
+            <div class="col-sm-8" ng-if="records">
+                <div class="list-group">
+                    <h2>Your Balance:<span> {{getBalence() | currency: $}}</span></h2>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" placeholder="Search" class="form-control" ng-model="searchFilter">
+                        </div>
+                        <div class="col-sm-2">
+                            <!-- <button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-sort-by-alphabet"></i></button>
+                            <button type="button" class="btn btn-default" ng-click="sortBy('age')"><i class="glyphicon glyphicon-sort-by-order"></i></button> -->
+                        </div>
+                    </div>
+                    <br />
+                    <div class="table-responsive" >
+                        <table class="table table-bordered ">
+                            <tr>
+                                <th ng-click="sortBy('date')">Date<span class="caret" id="dateScaret"></span></th>
+                                <th ng-click="sortBy('description')">Description<span class="caret" id="descriptionScaret"></span></th>
+                                <th ng-click="sortBy('debits')">Debits (${{ getDebitsTotal() }})<span class="caret" id="debitsScaret"></span></th>
+                                <th ng-click="sortBy('credits')">Credits (${{ getCreditsTotal() }})<span class="caret" id="creditsScaret"></span></th>
+                                <th ng-click="sortBy('notes')">Notes ({{ records.length }})<span class="caret" id="notesScaret"></span></th>
+                                <th></th>
+                            </tr>
+                            <tr ng-repeat="record in records | orderBy:order | filter:searchFilter track by $index">
+                                <!-- <td>{{record.date}}</td> -->
+                                <td>{{record.date | date: "yyyy-MM-dd"}}</td>
+                                <td>{{record.description}}</td>
+                                <td ng-style="{opacity : (record.debits == 0 || record.debits == null)?'0':'1'}">{{record.debits || 0 | currency: $}}</td>
+                                <td ng-style="{opacity : (record.credits == 0 || record.credits == null)?'0':'1'}">{{record.credits || 0 | currency: $}}</td>
+                                <td>{{record.notes}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-default" ng-click='editRecord(record)'>
+                                        <i class="glyphicon glyphicon-pencil"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" ng-click='removeRecord(record)' ng-if="!edittedRecord">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <!-- <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+                    </ul>
+                </div> -->
+                <form ng-if="edittedRecord">
+                    <h2>Edit Records</h2>
+                    <div class="form-group">
+                        <label for="">Date (yyyy-mm-dd)</label>
+                        <input type="date" class="form-control" placeholder="yyyy-mm-dd" ng-model='edittedRecord.date'>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Description</label>
+                        <input type="text" class="form-control" placeholder="description..." ng-model='edittedRecord.description'>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Debits($)</label>
+                        <input type="number" class="form-control" placeholder="$" ng-model='edittedRecord.debits' data-ng-disabled="edittedRecord.credits !== 0">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Credits($)</label>
+                        <input type="number" class="form-control" placeholder="$" ng-model='edittedRecord.credits' data-ng-disabled="edittedRecord.debits !== 0">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Notes</label>
+                        <textarea row="3" type="text" class="form-control" placeholder="notes" ng-model='edittedRecord.notes'></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-primary" ng-click="saveEdit()">Update</button>
+                    <br />
+                    <button class="btn btn-block btn-primary" ng-click="cancelEdit()">Cancel</button>
+                </form>
+            </div>
+        </div>
+        <div class="myModal"></div>
+    </div>
+</body>
+<script src='main.js'></script>
+<script src='records.js'></script>
+
+</html>
