@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ng-angular</title>
+    <script src="/bower_components/angular/angular.min.js"></script>
+<script src="main.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div>
+        <input type="text" ng-model='text'>
+        <input type="text" ng-model='joiner'>
+        <div>
+            {{text | titlecase : joiner}}
+        </div>
+    </div>
+</body>
+
+</html>

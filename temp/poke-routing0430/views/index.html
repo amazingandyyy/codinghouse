@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular</title>
+  <link rel="stylesheet" href="/bower_components/sweetalert/dist/sweetalert.css">
+
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+  <script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script src="/js/module.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script src="/js/services.js"></script>
+</head>
+<body ng-app='routerApp'>
+
+  <h1>Angular</h1>
+  <div>
+    <button ui-sref='home'>Home</button>
+    <button ui-sref='list'>Pokemon List</button>
+  </div>
+
+  <ui-view></ui-view>
+
+</body>
+</html>

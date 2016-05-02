@@ -1,0 +1,4 @@
+<h1>Pokemon</h1>
+<ul>
+    <li ng-repeat="pokemon in pokedex" ui-sref="detail({id: pokemon.entry_number})">{{pokemon.pokemon_species.name}}</li>
+</ul>
