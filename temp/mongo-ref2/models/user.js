@@ -20,14 +20,14 @@ userSchema.statics.readBook = function(userId, bookId, cb) {
     // call book.read()
     // callback
 
-    this.finById(userId, (err, user) => {
+    this.findById(userId, (err, user) => {
         // this is refering ro model itself, it's the "User"
         if (err) return res.status(400).send(err);
         var book = user.books.filter(book => book._id.toString() === bookId)[0];
         if (!book) {
             return cb({err: 'Book not found'});
         }
-        book.read(cb)
+        book.read(cb);
     }).populate('books');
 }
 

@@ -40,30 +40,9 @@ router.route('/:userId/read/:bookId')
         var userId = req.params.userId;
         var bookId = req.params.bookId;
 
-        User.findById(userId, (err, user) => {
-            if (err) return res.status(400).send(err);
-
-            // user.readBook(bookId, (err, savedBook)=>{
-            //
-            // });
-
-            var book = user.books.filter(book => book._id.toString() === bookId)[0];
-            if (!book) {
-                return res.status(400).send({
-                    err: 'Book not found'
-                });
-            }
-            book.readCount++;
-            book.save((err) => {
-                res.status(err ? 400 : 200).send(err);
-            })
-
-            // book.read(err => {
-            //     res.status(err ? 400 : 200).send(err)
-            // })
-
-
-        }).populate('books');
+        User.readBook(userId, bookId, err=>{
+            res.status(err ? 400 : 200).send(err)
+        });
     });
 
 

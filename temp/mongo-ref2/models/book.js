@@ -20,10 +20,10 @@ var bookSchema = new mongoose.Schema({
 //
 // book.read( someCallBack )
 
-bookSchema.method.read = function(cb) {
+bookSchema.methods.read = function(cb) {
     this.readCount++;
     this.save(cb);
-} 
+}
 
 var Book = mongoose.model('Book', bookSchema);
 
